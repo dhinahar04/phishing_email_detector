@@ -1,0 +1,48 @@
+From: shipment-tracking@amazon.com
+To: customer@example.com
+Subject: Your Amazon.com order has shipped
+Date: Tue, 17 Oct 2025 15:20:00 +0000
+Message-ID: <order-789456@amazon.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Hello,</p>
+
+<p>Your Amazon.com order #123-4567890-1234567 has shipped!</p>
+
+<p><strong>Delivery estimate:</strong> Friday, October 20, 2025</p>
+
+<p><strong>Items in this shipment:</strong></p>
+<ul>
+<li>Book: "Python Machine Learning" - Quantity: 1</li>
+<li>USB Cable (3-pack) - Quantity: 1</li>
+</ul>
+
+<p><strong>Shipping address:</strong><br>
+John Doe<br>
+123 Main Street<br>
+Anytown, CA 12345<br>
+United States</p>
+
+<p><strong>Carrier:</strong> UPS<br>
+<strong>Tracking number:</strong> 1Z999AA10123456784</p>
+
+<p>Track your package: <a href="https://www.amazon.com/gp/css/shiptrack/view.html?orderID=123-4567890-1234567">https://www.amazon.com/gp/css/shiptrack/view.html</a></p>
+
+<p>Need to make a change? Visit <a href="https://www.amazon.com/your-orders">Your Orders</a> to view or change your order.</p>
+
+<p>Thanks for shopping with us!</p>
+
+<p>Amazon.com<br>
+<a href="https://www.amazon.com">www.amazon.com</a></p>
+
+<p style="font-size: 10px; color: #666;">
+This email was sent from a notification-only address that cannot accept incoming email. Please do not reply to this message.
+</p>
+
+</body>
+</html>

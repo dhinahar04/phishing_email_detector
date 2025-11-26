@@ -1,0 +1,35 @@
+From: security@paypal-verify.tk
+To: user@example.com
+Subject: URGENT: Your PayPal Account Has Been Limited
+Date: Mon, 15 Oct 2025 10:30:00 +0000
+Message-ID: <abc123@paypal-verify.tk>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+
+Dear PayPal User,
+
+We have detected suspicious activity on your account and have temporarily limited access to protect your security.
+
+IMMEDIATE ACTION REQUIRED
+
+To restore full access to your account, you must verify your identity immediately by clicking the link below:
+
+http://paypal-verify.tk/secure/login.php?id=12345
+
+Failure to verify within 24 hours will result in permanent account suspension.
+
+Please update your information by providing:
+- Your full name
+- Credit card number and CVV
+- Social security number
+- Bank account details
+
+Click here to verify now: http://192.168.1.100/phishing/verify.html
+
+This is an automated message. Please do not reply to this email.
+
+Sincerely,
+PayPal Security Team
+security@paypal-verify.tk
+
+Copyright © 1999-2025 PayPal. All rights reserved.

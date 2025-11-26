@@ -1,0 +1,56 @@
+# Phishing Email Detection System - Python Dependencies
+# Install: pip install -r requirements.txt
+
+# ========================================
+# CORE DEPENDENCIES (Required for all setups)
+# ========================================
+
+# Web Framework
+Flask>=3.0.0
+Flask-CORS>=4.0.0
+Werkzeug>=3.0.0
+
+# Database ORM
+SQLAlchemy>=2.0.0
+
+# Machine Learning
+scikit-learn>=1.3.0
+numpy>=1.24.0
+pandas>=2.0.0
+joblib>=1.3.0
+
+# Utilities
+python-dotenv>=1.0.0
+schedule>=1.2.0  # For automatic retraining scheduler
+
+
+# ========================================
+# OPTIONAL: PostgreSQL Support
+# ========================================
+# Uncomment if using PostgreSQL instead of SQLite
+# If you get errors installing psycopg2-binary on Windows,
+# just use SQLite (comment out the line below)
+
+psycopg2-binary>=2.9.0
+
+
+# ========================================
+# INSTALLATION NOTES
+# ========================================
+#
+# Default Setup (SQLite - Easiest):
+#   pip install -r requirements.txt
+#   (PostgreSQL line commented = uses SQLite automatically)
+#
+# With PostgreSQL:
+#   1. Uncomment psycopg2-binary line above
+#   2. pip install -r requirements.txt
+#   3. Update backend/app.py with your PostgreSQL credentials
+#
+# Troubleshooting:
+#   - If psycopg2-binary fails: Use SQLite (keep it commented)
+#   - If scikit-learn fails: pip install --upgrade pip
+#   - If any package fails: Install one by one
+#
+# See docs/setup/WINDOWS_INSTALL.md for detailed instructions
+#

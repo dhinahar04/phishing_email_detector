@@ -1,0 +1,30 @@
+From: notifications@github.com
+To: developer@example.com
+Subject: [GitHub] New pull request in your repository
+Date: Mon, 15 Oct 2025 14:30:00 +0000
+Message-ID: <xyz789@github.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hi there,
+
+A new pull request has been opened in your repository "awesome-project".
+
+Pull Request #42: Add feature X
+Author: contributor@example.com
+
+Changes:
+- Added new feature X
+- Updated documentation
+- Fixed bug in module Y
+
+You can view and review this pull request at:
+https://github.com/yourusername/awesome-project/pull/42
+
+Thank you,
+GitHub Team
+
+---
+You're receiving this because you're watching this repository.
+View it on GitHub: https://github.com/yourusername/awesome-project
+Unsubscribe: https://github.com/settings/notifications

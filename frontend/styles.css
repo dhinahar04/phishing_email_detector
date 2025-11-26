@@ -1,0 +1,145 @@
+/* Custom styles for Phishing Email Detection Dashboard */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.sidebar {
+    background-color: #fff;
+    padding: 20px 0;
+    min-height: calc(100vh - 56px);
+}
+
+.sidebar .list-group-item {
+    border: none;
+    border-radius: 0;
+    padding: 15px 20px;
+}
+
+.sidebar .list-group-item:hover {
+    background-color: #f8f9fa;
+}
+
+.sidebar .list-group-item.active {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.sidebar .list-group-item i {
+    margin-right: 10px;
+}
+
+.card {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: none;
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background-color: #fff;
+    border-bottom: 2px solid #f0f0f0;
+    font-weight: 600;
+}
+
+.content-section {
+    padding: 20px;
+}
+
+/* Dashboard Cards */
+.card.bg-primary,
+.card.bg-danger,
+.card.bg-success,
+.card.bg-info {
+    border: none;
+}
+
+.card.bg-primary .card-title,
+.card.bg-danger .card-title,
+.card.bg-success .card-title,
+.card.bg-info .card-title {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.card h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Tables */
+.table {
+    background-color: #fff;
+}
+
+.table thead th {
+    border-bottom: 2px solid #dee2e6;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+.table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Badges */
+.badge {
+    padding: 0.5em 0.8em;
+    font-weight: 500;
+}
+
+/* Upload Section */
+#upload-progress {
+    margin-top: 20px;
+}
+
+#upload-result .alert {
+    margin-top: 20px;
+}
+
+/* Charts */
+canvas {
+    max-height: 300px;
+}
+
+/* Pagination */
+.pagination {
+    margin-top: 20px;
+}
+
+/* Code blocks */
+code {
+    color: #d63384;
+    background-color: #f8f9fa;
+    padding: 0.2em 0.4em;
+    border-radius: 0.25rem;
+}
+
+/* Navbar */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.navbar-brand i {
+    margin-right: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        min-height: auto;
+        margin-bottom: 20px;
+    }
+
+    .card h2 {
+        font-size: 1.5rem;
+    }
+}

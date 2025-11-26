@@ -1,0 +1,53 @@
+From: security-noreply@paypal-secure.tk
+To: customer@example.com
+Subject: URGENT: Verify Your Account Now or Face Suspension
+Date: Wed, 18 Oct 2025 09:15:22 +0000
+Message-ID: <urgent5678@paypal-secure.tk>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Immediate Action Required</h2>
+
+<p>Dear Valued Customer,</p>
+
+<p><strong style="color: red;">WARNING: Your PayPal account will be suspended in 24 hours!</strong></p>
+
+<p>We have detected unusual activity from IP address 185.220.101.45 attempting to access your account. For your security, we have temporarily limited your account.</p>
+
+<p><strong>To restore full access, you must verify your identity immediately:</strong></p>
+
+<p><a href="http://paypal-verify.tk/secure/login.php?session=ab45cd89&verify=true">Click here to verify your account</a></p>
+
+<p>If the link doesn't work, copy and paste this URL: http://192.168.50.123/paypal/verify.html</p>
+
+<p><strong>We need you to confirm the following information:</strong></p>
+<ul>
+<li>Full name and date of birth</li>
+<li>Credit card number, expiration date and CVV</li>
+<li>Social Security Number</li>
+<li>Bank account details</li>
+<li>Your password for verification</li>
+</ul>
+
+<p>Failure to verify within 24 hours will result in permanent account closure and loss of funds (approximately $1,247.89).</p>
+
+<p><strong>Act now before it's too late!</strong></p>
+
+<p>Click here immediately: <a href="http://bit.ly/paypal-urgent-verify">http://bit.ly/paypal-urgent-verify</a></p>
+
+<p>Thank you for your immediate attention.</p>
+
+<p>PayPal Security Department<br>
+Email: security@paypal-verify.tk<br>
+Phone: +1-555-0123 (Call now!)</p>
+
+<p style="font-size: 8px;">
+Security ID: a5f3e2c8b9d4a1f6e7c8b9d0<br>
+Transaction Hash: 5d41402abc4b2a76b9719d911017c592<br>
+SHA256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+</p>
+</body>
+</html>

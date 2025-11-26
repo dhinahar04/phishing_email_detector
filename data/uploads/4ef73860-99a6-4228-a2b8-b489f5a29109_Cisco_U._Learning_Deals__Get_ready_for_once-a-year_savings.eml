@@ -1,0 +1,888 @@
+Delivered-To: kit27.cse18@gmail.com
+Received: by 2002:a05:651c:4015:b0:336:de32:4a81 with SMTP id 21csp345612ljl;
+        Tue, 18 Nov 2025 17:18:35 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGvbFYHjhSoIjDo0hGcEU5huwZCoVxNvnKSh9V6K4a6VoRYP3j4w3UzYKcI+Bk0+8nGbPvw
+X-Received: by 2002:a17:90b:28cd:b0:343:bb8f:3678 with SMTP id 98e67ed59e1d1-343fa638d62mr17763840a91.27.1763515114542;
+        Tue, 18 Nov 2025 17:18:34 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1763515114; cv=none;
+        d=google.com; s=arc-20240605;
+        b=J1qa/o/+mN6HZExyZIRqYdU7+j6fuCDNIAE9aDVyq9pdctvKOtzvwpy88fJbCz1nmz
+         YBHDACsnuu7xtzq/odcHz4hEVRzxLSLsZUoT6okXoeDa7j4VfTxH45xyYbmuL8d4oqAD
+         wGypF9sPegtNXQak2Z76+J0hTA/SCPKibNCEjJ0cwBdSi5kFLzmfmVVhwrbRnT6b+UBE
+         5UXQuUkttHFigLckguKDX5vR6HH5W+H5wvVJQ5B5hYAyvyw7ggYImcNSQcmUJK4nPeol
+         9PnH1yfVks9VlHXK3dHK3Bvzia6+j/k7I2LKyUmjv39rQFq8foI6tSnCiSljmWD9OLx7
+         4+iA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-unsubscribe-post:mime-version:subject
+         :message-id:to:reply-to:from:date:dkim-signature;
+        bh=DwETf6dmP+H6RkdZCrZuGQ72N5QYWM+wK8dwEYBOU4A=;
+        fh=jD1cuzhGF7KUmnYY4i7JzxTwqYZrtetNhFkQ2V7ePF8=;
+        b=choMYXmqsNTMQZU6UJIIqHDtxPbXKZ/cH2JfCUNpzyOcXAMyzzUw3J5Uz8BhsJA8Sd
+         0cC+Chi9daTDqnbTMJanI+CkfY+dtZbDZ1SHO1J3lHREn/pbSIVPdQbxe1YxF0T+5gEW
+         8Lqfsry94vv8FYlCzs+wg+x3WfJ1kwSAQhgOcurSz5hYcTVDFWJrggO4Ez1imJvHgIRw
+         B9AivF7qfbKUdGS29ygQtwKKig2OyHIxXR2aTa5WzOIlkJB3tsmumDZOH0WzHCfBjHr2
+         M8Fm41R9NT5hE7EdAuulu/JxAGSA1hMs6sWFKMZyBLgZcOwomSoHSMuni3wSKpZZ7fay
+         UcKw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mktdns.com header.s=m1 header.b=mOAIfttB;
+       spf=pass (google.com: domain of 564-whv-323.0.313624.0.0.41721.9.172303045@cxbounce.cisco.com designates 192.28.158.168 as permitted sender) smtp.mailfrom=564-WHV-323.0.313624.0.0.41721.9.172303045@cxbounce.cisco.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=cisco.com
+Return-Path: <564-WHV-323.0.313624.0.0.41721.9.172303045@cxbounce.cisco.com>
+Received: from cxbounce.cisco.com (cxbounce.cisco.com. [192.28.158.168])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-bc375830876si8345718a12.599.2025.11.18.17.18.33
+        for <kit27.cse18@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 18 Nov 2025 17:18:34 -0800 (PST)
+Received-SPF: pass (google.com: domain of 564-whv-323.0.313624.0.0.41721.9.172303045@cxbounce.cisco.com designates 192.28.158.168 as permitted sender) client-ip=192.28.158.168;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mktdns.com header.s=m1 header.b=mOAIfttB;
+       spf=pass (google.com: domain of 564-whv-323.0.313624.0.0.41721.9.172303045@cxbounce.cisco.com designates 192.28.158.168 as permitted sender) smtp.mailfrom=564-WHV-323.0.313624.0.0.41721.9.172303045@cxbounce.cisco.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=cisco.com
+X-MSFBL: lECFEtF8+B4HrzZ0xWF8Q6tDErlZDgBLP5MuAgiDE+o=|eyJiIjoiZHZwLTE5Mi0
+	yOC0xNTgtMTY4IiwiZyI6ImJnLXNqZC04MDkiLCJ1IjoiNTY0LVdIVi0zMjM6MDo
+	xOTk1Mjo1MDYxNToxODkzNzk6NDE3MjE6OTozMTM2MjQ6MTcyMzAzMDQ1IiwiciI
+	6ImtpdDI3LmNzZTE4QGdtYWlsLmNvbSJ9
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1763506689;
+	s=m1; d=mktdns.com; i=@mktdns.com;
+	h=List-Unsubscribe:List-Unsubscribe-Post:Content-Type:MIME-Version:Subject:To:From:Date;
+	bh=DwETf6dmP+H6RkdZCrZuGQ72N5QYWM+wK8dwEYBOU4A=;
+	b=mOAIfttB3VEawD5fVQ5tODP5eCt3rP9n0hxixmzGwyPlGL9HOvBlyZbmDMVjtRK6
+	NfoHiUCCxB7mmm+x9CQrqelixIQPj9HSbZSPasIznbFLEU9lr9TEgJun87lji49+IUt
+	XmJLB4s5GuySMtGzvqEmb/UMSolWasw0vNlRSq0w=
+Date: Tue, 18 Nov 2025 16:58:09 -0600 (CST)
+From: Learn with Cisco <learningatcisco-noreply@cisco.com>
+Reply-To: learningatcisco-noreply@cisco.com
+To: kit27.cse18@gmail.com
+Message-ID: <1167399619.156296180.1763506689171@sjmktmail-batch1d.marketo.org>
+Subject: Cisco U. Learning Deals: Get ready for once-a-year savings
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_156296179_696045984.1763506689170"
+X-Binding: bg-sjd-809
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+List-Unsubscribe: <https://mkto-trk.cisco.com/u/NTY0LVdIVi0zMjMAAAGeOClEjypx4CXlutS1jyNEdh4xDUGDvDkIcpNwvVo0zgL-qMKZblqDcuWM-gJZwc1tJLy6ZkI=?emailAddress=NTY0LVdIVi0zMjMAAAGeOClEj6JXJCZDcT96inEyREvAQG9YmKnJOQxV7ozb3pN3D0-BTxfHe8f4wvVuR9k8LGxFAzY>, <mailto:GY3HAY2MOYWW4WLOGVYWIUCKOBUGSSKSGRXE22KQOZBU6SKKGFAUSR3FKNTDCT3RPBKXGPI=.313624.41721.9@unsub-sj.mktomail.com>
+X-MarketoID: 564-WHV-323:0:19952:50615:189379:41721:9:313624:172303045
+X-PVIQ: mkto-564WHV323-000001-000000-313624
+X-Mailfrom: 564-WHV-323.0.313624.0.0.41721.9.172303045@cxbounce.cisco.com
+X-MktArchive: false
+X-MSYS-API: {"options":{"open_tracking":false,"click_tracking":false}}
+X-MktMailDKIM: true
+
+------=_Part_156296179_696045984.1763506689170
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Greetings Dhinahar,
+
+Cisco U. Learning Deals <https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOCl=
+Ej5mOCBCSBt9bbwfUMSbbs9rZlTo361WsiWPYo94bMrdA6ZPKtNzawOlykedZioVwoww=3D>
+
+Our biggest sale of the year, Cisco U. Learning Deals, begins soon. We=E2=
+=80=99ve got you covered from Black Friday to Cyber Monday on everything yo=
+u need to upskill, reskill with AI, earn your CCNA certification=E2=80=94an=
+d lots more.
+
+Starts: November 24, 2025, 8 a.m. Pacific Time
+Ends: December 2, 2025, 8 a.m. Pacific Time
+
+Get ready for the following deals:
+
+- Save big on Cisco U. Essentials to learn more, earn more, and lab more.
+=09
+- Get 40% off AI Solutions on Cisco Infrastructure Essentials | DCAIE and A=
+utomate AI Solutions on Cisco Infrastructure | DCAIAA Learning Paths.
+=09
+- Save 40% on the CCNA Learning Path and Practice Exam Bundle.
+=09
+- Plus the savings continue with Cyber Monday Doorbuster Deals on select pr=
+oducts like Cisco Modeling Labs, Learning Paths, and Study Bundles.
+
+Save the date https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEjyU0xK3p1w=
+5rDDEuFKCf7IsAamXVQETlD4VXf00e77AHD8zM4FDvKkfv09oOpD3xae0=3D>
+
+Explore deals <https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEj5mOCBCSB=
+t9bbwfUMSbbs9rZlTo361WsiWPYo94bMrdA6ZPKtNzawOlykedZioVwoww=3D>
+
+This is the perfect opportunity to invest in yourself and meet your learnin=
+g goals.
+
+See you there,
+
+Learn with Cisco
+
+Cisco.com <https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEj0xNYiSDuy7np=
+y_DbDNBBN50EUqa_C4Gm5UBcV0KjNAxq3tVU-RBdsUHuwWvKL3dac8=3D>=20
+| <https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEjybrmIocj3PQv9f1MEAhh=
+gbS2qHFVPC091wAsiWWLusfRe19XXRVYX6FbJC4wLQRI9I=3D>=20
+Privacy <https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEj6Fk4B5iTk2eEfJ=
+1A8v37O1ucSKeVVtdBmQL0VtQTMlEUNW4nCZUSIDkoW5YvO_Q-yQ=3D>=20
+| <https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEjybrmIocj3PQv9f1MEAhh=
+gbS2qHFVPC091wAsiWWLusfRe19XXRVYX6FbJC4wLQRI9I=3D>=20
+Terms & Conditions <https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEjwhF=
+OJKKmrvqHq59S1EYkNZxb_ZP0M6copH1belg2hNhJx6EdbAnmBMOGO_OMBT3eSA=3D>=20
+| <https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEjybrmIocj3PQv9f1MEAhh=
+gbS2qHFVPC091wAsiWWLusfRe19XXRVYX6FbJC4wLQRI9I=3D>=20
+Cookies <https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEj0BbYiUUpjSciTn=
+n5iQ7poi8p3e37VqvCfkgiFxU8Dp1h6pJk_0-obbaSQpubBy2ACY=3D>=20
+| <https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEjybrmIocj3PQv9f1MEAhh=
+gbS2qHFVPC091wAsiWWLusfRe19XXRVYX6FbJC4wLQRI9I=3D>=20
+Trademarks <https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEj5xSgXykMBOX=
+5an5cUH25DDww13dYbA3ZXlmcHea_gwpwq7czOjsindlEoaCuKKpiUw=3D>
+
+Click here to unsubscribe <https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeO=
+ClEj69wkl7CRAaiVsIM_7off1lXGhkTIIyt1PmPG151zidA4Ys-dJiVsDKy-9Vgzw_JMKs=3D> =
+from receiving Cisco Learning & Certifications marketing communications. Ci=
+sco will continue to send service and transactional communications, includi=
+ng those that have to do with any accounts that you may have with us.=20
+=20
+Copyright =C2=A9 2025, Cisco Systems, Inc. All rights reserved. Cisco, Cisc=
+o Systems, and the Cisco Systems logo are registered trademarks of Cisco Sy=
+stems, Inc. and/or its affiliates in the United States and certain other co=
+untries.=20
+
+Cisco Systems, Inc 170 West Tasman Drive San Jose, California 95134
+
+<!--  -->
+
+------=_Part_156296179_696045984.1763506689170
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-microso=
+ft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+<head>=20
+<title>Email Template</title>=20
+<meta name=3D"x-apple-disable-message-reformatting" />=20
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8" />=
+=20
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1,=
+ minimum-scale=3D1, maximum-scale=3D1" />=20
+<meta name=3D"robots" content=3D"noindex,nofollow" />=20
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge" />=20
+<meta name=3D"color-scheme" content=3D"light dark" />=20
+<meta name=3D"supported-color-schemes" content=3D"light dark" />   =20
+<!--background-images-->           =20
+<!-- new variable 2-11-2023 --> =20
+<!-- new variable 2-11-2023 -->         =20
+<!-- new variable 2-11-2023 --> =20
+<!-- new variable 2-11-2023 -->=20
+<!--background colors-->         =20
+<!--Spacing-->          =20
+<!-- new variable 2-11-2023 --> =20
+<!-- new variable 2-11-2023 -->              =20
+<!--Image Width Veriable-->=20
+<!--
+    <meta  mktoModuleScope=3D"true" class=3D"mktoNumber" id=3D"ImageWidth" =
+mktoname=3D"Image Width" default=3D"540" min=3D"0" max=3D"600" step=3D"1" /=
+>
+    -->          =20
+<!-- CTA-->                                                     =20
+<!-- <meta mktoModuleScope=3D"true" class=3D"mktoString" mktoName=3D"Outloo=
+k CTA Width" id=3D"outlook-cta-width" default=3D"135"> -->   =20
+<!-- New Module Variables -->                =20
+<!-- <meta mktoModuleScope=3D"true" class=3D"mktoBoolean" id=3D"showCol2Bad=
+ge" mktoName=3D"Show Col2 Badge ?" true_value=3D"block" false_value=3D"none=
+" default=3D"false" /> -->     =20
+<!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+        <o:AllowPNG/>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+</xml>
+<![endif]-->=20
+<!--[if mso]>
+<style> body,table tr,table td,a, span,table.MsoNormalTable,th {  font-fami=
+ly:'Arial',Helvetica,sans-serif !important;  }</style>
+<![endif]-->=20
+<style media=3D"all">
+    /* bold */
+    @font-face {
+        font-family: 'CiscoSans';
+        font-style: normal;
+        font-weight: 700;
+        src: url(https://mkto.cisco.com/rs/564-WHV-323/images/CiscoSansTTBo=
+ld1.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20A=
+B, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    /* normal */
+    @font-face {
+        font-family: 'CiscoSans';
+        font-style: normal;
+        font-weight: 400;
+        src: url(https://mkto.cisco.com/rs/564-WHV-323/images/CiscoSansTTRe=
+gular1.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C=
+6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2=
+212, U+2215, U+FEFF, U+FFFD;
+    }
+    /* Light */
+    @font-face {
+        font-family: 'CiscoSans';
+        font-style: normal;
+        font-weight: 100;
+        src: url(https://mkto.cisco.com/rs/564-WHV-323/images/CiscoSansTTEx=
+traLight1.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C=
+6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2=
+212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+        font-family: 'CiscoSansTT';
+        src: url('http://mkto.cisco.com/rs/564-WHV-323/images/CiscoSansTTLi=
+ght.woff') format('woff');
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'CiscoSansTT';
+        src: url('http://mkto.cisco.com/rs/564-WHV-323/images/CiscoSansTTRe=
+gular.woff') format('woff');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'CiscoSansTT';
+        src: url('http://mkto.cisco.com/rs/564-WHV-323/images/CiscoSansTTBo=
+ld.woff') format('woff');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+    }
+   =20
+    /* CLIENT-SPECIFIC STYLES */
+    #outlook a {
+        padding: 0;
+    }
+    .linkColor {text-decoration:underline !important;color:#1f9bde !importa=
+nt; outline:none !important;}
+    /* Force Outlook to provide a "view in browser" message */
+    .ReadMsgBody {
+        width: 100%;
+    }
+    .ExternalClass {
+        width: 100%;
+    }
+    /* Force Hotmail to display emails at full width */
+    .ExternalClass,
+    .ExternalClass p,
+    .ExternalClass span,
+    .ExternalClass font,
+    .ExternalClass td,
+    .ExternalClass div {
+        line-height: 100%;
+    }
+    iframe{width:100% !importamt;max-width:100% !important;}
+    /* Force Hotmail to display normal line spacing */
+    /* iOS BLUE LINKS */
+    @-ms-viewport {
+        width: device-width;
+    }
+    img {height:auto !important;}
+</style>=20
+<style type=3D"text/css">
+    :root {
+        color-scheme: light dark;
+        supported-color-schemes: light dark;
+    }
+</style>=20
+<style type=3D"text/css">
+    @media (prefers-color-scheme: dark) {
+        /* Shows Dark Mode-Only Content, Like Images */
+        .dark-img {
+            display: block !important;
+            width: auto !important;
+            overflow: visible !important;
+            float: none !important;
+            max-height: inherit !important;
+            max-width: inherit !important;
+            line-height: auto !important;
+            margin-top: 0px !important;
+            visibility: inherit !important;
+        }
+        /* Hides Light Mode-Only Content, Like Images */
+        .light-img {
+            display: none;
+            display: none !important;
+        }
+        /* Custom Dark Mode Font Colors */
+        .text-white,
+        .text_white,=20
+        .text_white a,
+        .text-white a{color:#ffffff !important;}
+        .bg-black{background-color: #000000 !important;}
+        .CtaTextBGdark{background-color:#969696 !important;border:1px solid=
+ #D2D0D0 !important;}
+        .CtaTextdark{color:#ffffff;}
+       =20
+    }
+</style>=20
+<style media=3D"all">
+    html { -webkit-text-size-adjust:none; }
+    body{font-family:'Arial', Helvetica, sans-serif;}
+    p, .undoreset div p, .undoreset p {
+        margin-top: 14px;
+        margin-bottom:14px;         =20
+    }
+    .btnLine{text-decoration:underline !important;}
+    a[x-apple-data-detectors] {
+        color: inherit !important;
+        text-decoration: none !important;
+        font-size: inherit !important;
+        font-family: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+    }
+    a{outline: none !important; text-decoration:none; }
+    .phone-bg{background-size:cover !important;}
+    .desk_hide{display: none !important; visibility: hidden !important;}
+</style>=20
+<style>
+    @media only screen and (min-width: 641px) {
+        .mobile-only{
+            display: none !important;
+        }
+    }
+    @media only screen and (max-width: 640px){
+        .mobile_show{display: block !important; visibility: visible !import=
+ant;}
+        .mobile_show_in{display: inline-block !important; visibility: visib=
+le !important;}
+        .hide_mobile{display: none !important; visibility: hidden !importan=
+t;}
+        .main {width:100% !important; min-width: 100% !important;}
+        .inner_table{width:90% !important; min-width:85% !important}
+        .inner_table_two{width:85% !important; min-width:85% !important;}
+        .inner_table_50{width:50% !important;min-width:50% !important;text-=
+align: left !important;margin: 0 !important;}
+        .logomob {max-width:90% !important;margin:0 auto !important; height=
+: auto !important}
+        .res{width:100% !important; display:block;}
+        .block{display:block !important; margin:0 auto !important;}
+        .left_align{text-align:left !important;}
+        .center{text-align:center !important; margin:0 auto;    float: none=
+ !important;}
+        .full-width img{width:100% !important; height:auto !important;}=20
+        .full-width_auto img{width:auto !important;max-width: 100% !importa=
+nt;height:auto !important;}=20
+        .padding_btm{padding-bottom:22px !important;}
+        .top_pad ,.padding_top{padding-top:18px !important;}
+        .padding_top_40{padding-top:40px !important;}
+        .res-logo img {width: 100px !important;}=20
+        .font30{font-size: 30px !important;line-height: 34px !important;}
+        .font12{font-size: 14px !important;line-height: 18px !important;}
+        .w54{width:54px !important;}
+        .width_auto img{max-width:100% !important}
+       =20
+        .bg-none{background-image:none !important;}
+        .w-100{width: 100% !important;}
+        .padding_mob{ padding: 10px 16px !important;width:auto !important;}
+        .bg-colorblue{
+            background-color: #0051AF !important;
+            background-image: none !important;
+        }
+        .padder {padding-right:11px}
+        .inner-table{
+            width:90% !important;
+            margin:0 auto !important;
+        } =20
+        .inner-table-2{
+            width:95% !important;
+            margin:0 auto !important;
+        } =20
+        .bg-colorblue1{
+            background-color: #01053B !important;
+            background-image: none !important;
+        }
+        .cust-botm{
+            height: 30px !important;
+        }
+        .hidden{
+            display: none !important;
+        }
+        .width100{
+            width: 100% !important;
+        }
+        .desktop-only{
+            display: none !important;       =20
+        }
+        .vmiddle{
+            vertical-align: middle !important;
+        }
+        .pt0{
+            padding-top: 0 !important;
+        }
+    }
+    @media(max-width:540px){
+        .bg_small{
+            background-size: contain !important;background-position: right =
+bottom !important; =20
+        }
+        .wauto{width:auto !important}
+       =20
+    }
+    @media(max-width:480px){
+        .cust-top{
+            height: 90px !important;
+        }
+        .cust-botm1{
+            height: 30px !important;
+        }
+       =20
+    }
+   =20
+    @media(max-width:360px){
+        .font12{font-size: 12px !important;line-height: 16px !important;}
+        .padding_mob{ padding: 10px 5px !important;width:auto !important;}
+        .w5{width:5px !important;}
+        .w10{width:10px !important;}
+    }
+   =20
+</style>=20
+</head>=20
+<body style=3D"background:#eeeeee;margin-left:0;margin-right:0;margin-botto=
+m:0;margin-top:0;padding-bottom:0;padding-top:0;padding-right:0;padding-lef=
+t:0;width:100%;-webkit-font-smoothing: antialiased ; -webkit-text-size-adju=
+st: 100%; -ms-text-size-adjust: 100%;"><style type=3D"text/css">div#emailPr=
+eHeader{ display: none !important; }</style><div id=3D"emailPreHeader" styl=
+e=3D"mso-hide:all; visibility:hidden; opacity:0; color:transparent; mso-lin=
+e-height-rule:exactly; line-height:0; font-size:0px; overflow:hidden; borde=
+r-width:0; display:none !important;">Your chance to save 40% coming soon.</=
+div>=20
+<table cellpadding=3D"0" border=3D"0" cellspacing=3D"0" width=3D"100%" styl=
+e=3D"border:0;border-spacing:0;border-collapse:collapse;margin:0 auto;width=
+:100%;mso-table-lspace: 0pt; mso-table-rspace: 0pt;">=20
+<tbody>
+<tr>=20
+<td bgcolor=3D"#eeeeee" style=3D"background:#eeeeee;">=20
+<table class=3D"main mktoContainer" id=3D"email-wrapper" bgcolor=3D"#eeeeee=
+" width=3D"600" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border:0; margin:0 auto;border-collapse:collapse;width:600p=
+x; min-width:600px;mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<tr class=3D"mktoModule" id=3D"headertop3ab11ab4-ebc5-47b9-b0b0-9d9fa1ec46b=
+7">=20
+<td class=3D"bg-black" bgcolor=3D"#ffffff" style=3D"background-color:#fffff=
+f;">=20
+<table class=3D"inner_table" width=3D"540" align=3D"center" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" style=3D"border:0;border-spacing:0;mso-ta=
+ble-lspace: 0pt; mso-table-rspace: 0pt;border-collapse:collapse;margin:0 au=
+to;width:540px">=20
+<tbody>=20
+<tr>=20
+<td height=3D"20" style=3D"line-height:1px;font-size:1px;">&nbsp; </td>=20
+</tr>=20
+<tr>=20
+<td>=20
+<table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"width: 100%; border:0;border-spacing:0;mso-table-lspace: 0pt; mso-tabl=
+e-rspace: 0pt;border-collapse:collapse;">=20
+<tbody>=20
+<tr>=20
+<td align=3D"left">=20
+<div class=3D"mktoImg" id=3D"toplogoa6c6cdc6-933b-41d2-82af-8e4e96e09903" m=
+ktolockimgsize=3D"true">=20
+<a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEj0xNYiSDuy7npy_DbDNBBN5=
+0EUqa_C4Gm5UBcV0KjNAxq3tVU-RBdsUHuwWvKL3dac8=3D" target=3D"_blank" style=3D=
+"text-decoration: none;outline: none;"
+> <img width=3D"69" src=3D"https://mkto.cisco.com/rs/564-WHV-323/images/sma=
+ll-logo.png" alt=3D"Cisco" style=3D"width:51px;display:inline-block; border=
+:none; outline:none;" /></a>=20
+</div> </td>=20
+<td align=3D"right">=20
+<div class=3D"mktoImg" id=3D"toplogorightb377b3c1-5b3d-443a-94fb-c135b9ca5f=
+8a">=20
+<a style=3D"text-decoration: none;outline: none;"> <img style=3D"" width=3D=
+"43" /> </a>=20
+</div> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+<tr>=20
+<td height=3D"15" style=3D"line-height:1px;font-size:1px;">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td align=3D"right" style=3D"text-decoration: underline;line-height: 14px;f=
+ont-size:10px;font-family:'CiscoSansTT',Arial,sans-serif; color:#000000; fo=
+nt-weight:300; mso-line-height-rule:exactly;">=20
+<div class=3D"mktoText" id=3D"touchtext38fd5fd2-a30f-4823-8b87-7e21a5f307f6=
+">=20
+<div>=20
+<a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEjybrmIocj3PQv9f1MEAhhgb=
+S2qHFVPC091wAsiWWLusfRe19XXRVYX6FbJC4wLQRI9I=3D" target=3D"_blank" style=3D=
+"text-decoration: none;outline: none;color:#000000;"
+></a>=20
+</div>=20
+</div> </td>=20
+</tr>=20
+<tr>=20
+<td height=3D"0" style=3D"line-height:1px;font-size:1px;">&nbsp;</td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>
+<tr class=3D"mktoModule" id=3D"imgfullwidthmodv17f74244d-e99d-47a2-a7d1-43b=
+0b87bdef7">=20
+<td class=3D"bg-black" bgcolor=3D"#ffffff" style=3D"background-color:#fffff=
+f;">=20
+<table class=3D"main" width=3D"600" align=3D"center" border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" style=3D"border:0;border-spacing:0;mso-table-lsp=
+ace: 0pt; mso-table-rspace: 0pt;border-collapse:collapse;margin:0 auto;widt=
+h:600px">=20
+<tbody>=20
+<tr>=20
+<td height=3D"0" style=3D"line-height:1px;font-size:1px;">&nbsp; </td>=20
+</tr>=20
+<tr>=20
+<td class=3D"full-width" valign=3D"top" style=3D"vertical-align: top">=20
+<div class=3D"mktoImg" id=3D"fullBanner015cc5448e-2d75-4acc-acde-3c722e252d=
+d6" mktolockimgsize=3D"true">=20
+<img border=3D"0" src=3D"https://mkto.cisco.com/rs/564-WHV-323/images/cu-le=
+arning-deals-2025.jpg?version=3D0" alt=3D"Cisco U. Learning Deals" width=3D=
+"600" style=3D"width:600px;display:inline-block; border:none; outline:none;=
+" />=20
+</div> </td>=20
+</tr>=20
+<tr>=20
+<td height=3D"0" style=3D"line-height:1px;font-size:1px;">&nbsp; </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>
+<tr class=3D"mktoModule" id=3D"freeText-mod23dae11e-d99d-44ec-8ad9-1334b8f1=
+6e07">=20
+<td class=3D"bg-black" bgcolor=3D"#ffffff" style=3D"background-color:#fffff=
+f;">=20
+<table class=3D"inner_table" width=3D"540" align=3D"center" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" style=3D"border:0;border-spacing:0;mso-ta=
+ble-lspace: 0pt; mso-table-rspace: 0pt;border-collapse:collapse;margin:0 au=
+to;width:540px">=20
+<tbody>=20
+<tr>=20
+<td height=3D"7" style=3D"line-height:1px;font-size:1px;">&nbsp; </td>=20
+</tr>=20
+<tr>=20
+<td class=3D"text_white" valign=3D"top" align=3D"left" style=3D"font-family=
+:'CiscoSansTT',Arial,sans-serif; font-size:16px; line-height:23px; color:#0=
+D0D0E; text-align:left; font-weight:300; mso-line-height-rule:exactly;">=20
+<div class=3D"mktoText" id=3D"freeText-13fd850fc-859e-4e68-8f06-42c3173e3e6=
+f">=20
+<p>Greetings Dhinahar,</p>=20
+<div>=20
+<span style=3D"font-size: 16px;"><a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEj8bF4dT1Ig0Hni07g74mgFQ=
+OQKTCuhTLJttm1snxi8Fij-In2MfBDO6D2GWR38o0VeY=3D" target=3D"_blank" style=3D=
+"color: #0070d2; text-decoration: none; font-weight: normal;"
+>Cisco U. Learning Deals</a></span>=20
+</div>=20
+<div>
+ Our biggest sale of the year,=20
+<strong>Cisco U. Learning Deals,</strong> begins soon. We=E2=80=99ve got yo=
+u covered from Black Friday to Cyber Monday on everything you need to upski=
+ll, reskill with AI, earn your CCNA certification=E2=80=94and lots more.=20
+<br />=20
+<br />=20
+</div>=20
+<div>=20
+<strong>Starts:</strong> November 24, 2025, 8 a.m. Pacific Time=20
+</div>=20
+<div>=20
+<strong>Ends:</strong> December 2, 2025, 8 a.m. Pacific Time=20
+<br />=20
+</div>=20
+<p><strong>Get ready for the following deals:</strong></p>=20
+<ul>=20
+<li>Save big on Cisco U. Essentials to learn more, earn more, and lab more.=
+</li>=20
+<li>Get 40% off <strong>AI Solutions on Cisco Infrastructure Essentials | D=
+CAIE</strong> and <strong>Automate AI Solutions on Cisco Infrastructure | D=
+CAIAA</strong> Learning Paths.</li>=20
+<li>Save 40% on the CCNA Learning Path and Practice Exam Bundle.</li>=20
+<li>Plus the savings continue with Cyber Monday Doorbuster Deals on select =
+products like Cisco Modeling Labs, Learning Paths, and Study Bundles.</li>=
+=20
+</ul>=20
+</div> </td>=20
+</tr>=20
+<tr>=20
+<td height=3D"0" style=3D"line-height:1px;font-size:1px;">&nbsp; </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>
+<tr class=3D"mktoModule" id=3D"TwoCTAwithBGf010b32f-adfc-4103-8660-bffc2969=
+42ee">=20
+<td class=3D"bg_small bg-black" bgcolor=3D"#ffffff" style=3D"background-col=
+or:#ffffff;background-image:url('https://mkto.cisco.com/rs/564-WHV-323/imag=
+es/blank.png');background-position: right;background-size: cover;background=
+-repeat: no-repeat;">=20
+<!--[if gte mso 9]>
+        <v:rect xmlns:v=3D"urn:schemas-microsoft-com:vml" fill=3D"true" str=
+oke=3D"false" style=3D"width:600px;display:block;height:120px;">
+        <v:fill type=3D"frame" src=3D"https://mkto.cisco.com/rs/564-WHV-323=
+/images/blank.png" color=3D"#ffffff" />
+        <v:textbox style=3D"mso-fit-shape-to-text:true" inset=3D"0,0,0,0">
+        <![endif]-->=20
+<table class=3D"inner_table" width=3D"540" align=3D"center" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" style=3D"border:0;border-spacing:0;mso-ta=
+ble-lspace: 0pt; mso-table-rspace: 0pt;border-collapse:collapse;margin:0 au=
+to;width:540px">=20
+<tbody>=20
+<tr>=20
+<td height=3D"5" style=3D"line-height:1px;font-size:1px;">&nbsp; </td>=20
+</tr>=20
+<tr>=20
+<th valign=3D"top" width=3D"120" class=3D"res" style=3D"width:120px;">=20
+<div class=3D"mktoText" id=3D"mod2CTAv29288e014-aadb-489b-bac3-e2db322f96b4=
+">=20
+<table class=3D"w100" bgcolor=3D"#0076D5" style=3D"text-align:left; border-=
+radius: 50px;border: 1px solid #0076D5" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"0" width=3D"" align=3D"left">=20
+<tbody>=20
+<tr>=20
+<td style=3D"font-family:'CiscoSansTT',Arial,sans-serif; font-size:14px; te=
+xt-align: center; vertical-align: middle;color: #ffffff;display: inline-blo=
+ck; padding: 12px 20px;line-height:14px;font-weight:400;"><a style=3D"text-=
+decoration: none; color: #ffffff; outline:none;" href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEj8bF4dT1Ig0Hni07g74mgFQ=
+OQKTCuhTLJttm1snxi8Fij-In2MfBDO6D2GWR38o0VeY=3D"
+> <span style=3D"color:#ffffff;"> View deals </span> </a> </td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+</div> </th>=20
+<th width=3D"15" class=3D"res padding_top_40" style=3D"width:15px;vertical-=
+align: top">&nbsp;</th>=20
+<th width=3D"170" valign=3D"top" class=3D"res" align=3D"left" style=3D"text=
+-align: left;width:170px;">=20
+<div class=3D"mktoText" id=3D"mod2CTAv2-b5bd34388-94de-4e97-9970-63c65705a5=
+cd">=20
+<table class=3D"w100" bgcolor=3D"#ffffff" style=3D"text-align: left; border=
+-radius: 50px;border: 1px solid #0D0D0E" border=3D"0" cellspacing=3D"0" cel=
+lpadding=3D"0" align=3D"left">=20
+<tbody>=20
+<tr>=20
+<td style=3D"font-family:'CiscoSansTT',Arial,sans-serif; font-size:14px; te=
+xt-align: center; vertical-align: middle;color: #0D0D0E;display: inline-blo=
+ck; padding: 12px 20px;line-height:14px;font-weight:400;"><a style=3D"text-=
+decoration: none; color: #0D0D0E; outline:none;" href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEjyU0xK3p1w5rDDEuFKCf7Is=
+AamXVQETlD4VXf00e77AHD8zM4FDvKkfv09oOpD3xae0=3D"
+> <span style=3D"color:#0D0D0E;"> Save the date </span> </a> </td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+</div> </th>=20
+<th width=3D"200" class=3D"hide_mobile" style=3D"width:200px;vertical-align=
+: top">&nbsp;</th>=20
+</tr>=20
+<tr>=20
+<td height=3D"5" style=3D"line-height:1px;font-size:1px;">&nbsp; </td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+<!--[if gte mso 9]>
+</v:textbox>
+</v:rect>
+<![endif]--> </td>=20
+</tr>
+<tr class=3D"mktoModule" id=3D"freeText-mode51a8299-ea1f-4444-b3af-d474f040=
+2193">=20
+<td class=3D"bg-black" bgcolor=3D"#ffffff" style=3D"background-color:#fffff=
+f;">=20
+<table class=3D"inner_table" width=3D"540" align=3D"center" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" style=3D"border:0;border-spacing:0;mso-ta=
+ble-lspace: 0pt; mso-table-rspace: 0pt;border-collapse:collapse;margin:0 au=
+to;width:540px">=20
+<tbody>=20
+<tr>=20
+<td height=3D"0" style=3D"line-height:1px;font-size:1px;">&nbsp; </td>=20
+</tr>=20
+<tr>=20
+<td class=3D"text_white" valign=3D"top" align=3D"left" style=3D"font-family=
+:'CiscoSansTT',Arial,sans-serif; font-size:16px; line-height:23px; color:#0=
+D0D0E; text-align:left; font-weight:300; mso-line-height-rule:exactly;">=20
+<div class=3D"mktoText" id=3D"freeText-1f90de0d8-ac76-49d6-8704-d442cfb8bc9=
+9">=20
+<p>This is the perfect opportunity to invest in yourself and meet your lear=
+ning goals.</p>=20
+<p>See you there,</p>=20
+<p>Learn with Cisco</p>=20
+</div> </td>=20
+</tr>=20
+<tr>=20
+<td height=3D"0" style=3D"line-height:1px;font-size:1px;">&nbsp; </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>
+<tr class=3D"mktoModule" id=3D"footerlight">=20
+<td class=3D"bg-black" bgcolor=3D"#ffffff" style=3D"background-color:#fffff=
+f;">=20
+<table class=3D"inner_table" width=3D"540" align=3D"center" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" style=3D"border:0;border-spacing:0;mso-ta=
+ble-lspace: 0pt; mso-table-rspace: 0pt;border-collapse:collapse;margin:0 au=
+to;width:540px">=20
+<tbody>=20
+<tr>=20
+<td height=3D"30" style=3D"line-height:1px;font-size:1px;">&nbsp; </td>=20
+</tr>=20
+<tr>=20
+<td align=3D"center" style=3D"text-align: center;">=20
+<div class=3D"mktoText" id=3D"socialiconsdark">=20
+<a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEj2PoLjHG2NlGTzfPQqIKnnH=
+k1m7PzzSRir2NZTb5EDjpmxyFBDzhlHei6hZnit5anGw=3D" style=3D"text-decoration: =
+none;"
+><img src=3D"https://mkto.cisco.com/rs/564-WHV-323/images/Facebook-black-st=
+roke.png" alt=3D"Facebook" width=3D"14" />&nbsp;&nbsp;&nbsp;&nbsp;</a>=20
+<a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEj1bsnIvRncDoHGeYwU95mU2=
+VB3GF5ApxGxjmWEYtHj4Aya2lR9mR10fY0uz1_agxSpA=3D" style=3D"text-decoration: =
+none;"
+><img src=3D"https://mkto.cisco.com/rs/564-WHV-323/images/Instagram-black-s=
+troke.png" alt=3D"Instagram" width=3D"19" />&nbsp;&nbsp;&nbsp;&nbsp;</a>=20
+<a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEj5u_qQbCvm2exi6dSb368ws=
+mmNLV7vkR2977Xcf8kqDCGenc4uKKdz4dzmTsOIXwsQk=3D" style=3D"text-decoration: =
+none;"
+><img src=3D"https://mkto.cisco.com/rs/564-WHV-323/images/Twitter-black-str=
+oke.png" alt=3D"Twitter" width=3D"21" />&nbsp;&nbsp;&nbsp;&nbsp;</a>=20
+<a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEj9R-4EHWJUvLNaxzmd9MNn6=
+rKV5uVVlRZkgfQDBJYslU7VRYyWEVlrd49g6XuCchCDI=3D" style=3D"text-decoration: =
+none;"
+><img src=3D"https://mkto.cisco.com/rs/564-WHV-323/images/LinkedIn-black-st=
+roke.png" alt=3D"LinkedIn" width=3D"22" />&nbsp;&nbsp;&nbsp;&nbsp;</a>=20
+<a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEjy860d9BfyC7vDPQh8ef5QV=
+431hnz9JwnWjU_ge98eWvYQ-qo9mgCvWA3pcUfgDj8gw=3D" style=3D"text-decoration: =
+none;"
+><img src=3D"https://mkto.cisco.com/rs/564-WHV-323/images/YouTube-black-str=
+oke.png" alt=3D"YouTube" width=3D"24" />&nbsp;&nbsp;&nbsp;&nbsp;</a>=20
+</div> </td>=20
+</tr>=20
+<tr>=20
+<td height=3D"20" style=3D"line-height:1px;font-size:1px;">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td align=3D"center" style=3D"text-align: center;">=20
+<div class=3D"mktotext" id=3D"footertextlight">=20
+<a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEj0xNYiSDuy7npy_DbDNBBN5=
+0EUqa_C4Gm5UBcV0KjNAxq3tVU-RBdsUHuwWvKL3dac8=3D" style=3D"text-decoration: =
+none; vertical-align: middle; font-family: 'CiscoSansTT',Arial,sans-serif; =
+font-weight: 400; color: #000000; line-height: 12px; font-size: 9px; -mso-l=
+ine-height-rule: exactly;"
+>Cisco.com</a>=20
+<a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEjybrmIocj3PQv9f1MEAhhgb=
+S2qHFVPC091wAsiWWLusfRe19XXRVYX6FbJC4wLQRI9I=3D" style=3D"text-decoration: =
+none; color: #000000;"
+>|</a>=20
+<a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEj6Fk4B5iTk2eEfJ1A8v37O1=
+ucSKeVVtdBmQL0VtQTMlEUNW4nCZUSIDkoW5YvO_Q-yQ=3D" style=3D"text-decoration: =
+none; vertical-align: middle; font-family: 'CiscoSansTT',Arial,sans-serif; =
+font-weight: 400; color: #000000; line-height: 12px; font-size: 9px; -mso-l=
+ine-height-rule: exactly;" target=3D"_blank"
+>Privacy</a>=20
+<a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEjybrmIocj3PQv9f1MEAhhgb=
+S2qHFVPC091wAsiWWLusfRe19XXRVYX6FbJC4wLQRI9I=3D" style=3D"text-decoration: =
+none; color: #000000;"
+>|</a>=20
+<a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEjwhFOJKKmrvqHq59S1EYkNZ=
+xb_ZP0M6copH1belg2hNhJx6EdbAnmBMOGO_OMBT3eSA=3D" style=3D"text-decoration:=
+=20
+none; vertical-align: middle; font-family: 'CiscoSansTT',Arial,sans-serif; =
+font-weight: 400; color: #000000; line-height: 12px; font-size: 9px; -mso-l=
+ine-height-rule: exactly;"
+>Terms &amp; Conditions</a>=20
+<a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEjybrmIocj3PQv9f1MEAhhgb=
+S2qHFVPC091wAsiWWLusfRe19XXRVYX6FbJC4wLQRI9I=3D" style=3D"text-decoration: =
+none; color: #000000;"
+>|</a>=20
+<a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEj0BbYiUUpjSciTnn5iQ7poi=
+8p3e37VqvCfkgiFxU8Dp1h6pJk_0-obbaSQpubBy2ACY=3D" style=3D"text-decoration: =
+none; vertical-align:=20
+middle; font-family: 'CiscoSansTT',Arial,sans-serif; font-weight: 400; colo=
+r: #000000; line-height: 12px; font-size: 9px; -mso-line-height-rule: exact=
+ly;" target=3D"_blank"
+>Cookies</a>=20
+<a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEjybrmIocj3PQv9f1MEAhhgb=
+S2qHFVPC091wAsiWWLusfRe19XXRVYX6FbJC4wLQRI9I=3D" style=3D"text-decoration: =
+none; color: #000000;"
+>|</a>=20
+<a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEj5xSgXykMBOX5an5cUH25DD=
+ww13dYbA3ZXlmcHea_gwpwq7czOjsindlEoaCuKKpiUw=3D" style=3D"text-decoration: =
+none; vertical-align: middle; font-family:=20
+'CiscoSansTT',Arial,sans-serif; font-weight: 400; color: #000000; line-heig=
+ht: 12px; font-size: 9px; -mso-line-height-rule: exactly;"
+>Trademarks</a>=20
+</div> </td>=20
+</tr>=20
+<tr>=20
+<td height=3D"15" style=3D"line-height:1px;font-size:1px;">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td align=3D"center" style=3D"text-align: center;font-family:'CiscoSansTT',=
+Arial,sans-serif;color: #000000;font-weight: 400;line-height: 12px;font-siz=
+e: 9px;-mso-line-height-rule: exactly;">=20
+<div class=3D"mktoText" id=3D"copyrighttextlight">=20
+<div style=3D"text-align: center;">=20
+<span style=3D"text-decoration: underline;"><span style=3D"color: #000000;"=
+><a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEj69wkl7CRAaiVsIM_7off1l=
+XGhkTIIyt1PmPG151zidA4Ys-dJiVsDKy-9Vgzw_JMKs=3D" target=3D"_blank" id=3D"" =
+style=3D"color: #000000; text-decoration: underline;"
+>Click here to unsubscribe</a> </span></span>from receiving Cisco Learning =
+&amp; Certifications marketing communications. Cisco will continue to send =
+service and transactional communications, including those that have to do w=
+ith any accounts that you may have with us.=20
+<br />=20
+<br />Copyright =C2=A9 2025, Cisco Systems, Inc. All rights reserved. Cisco=
+, Cisco Systems, and the Cisco Systems logo are registered trademarks of Ci=
+sco Systems, Inc. and/or its affiliates in the United States and certain ot=
+her countries.=20
+<br />Cisco Systems, Inc 170 West Tasman Drive San Jose, California 95134=
+=20
+</div>=20
+</div> </td>=20
+</tr>=20
+<tr>=20
+<td height=3D"30" style=3D"line-height:1px;font-size:1px;">&nbsp;</td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>
+</table> </td>=20
+</tr>=20
+</tbody>
+</table>  =20
+<a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAGeOClEjyfW96MLlf36-1WX0BLCQD4=
+JDvcI-suFn-ytH6DDHAkXhY1ISaTNrYfB9bkRYRLHXCo=3D"
+></a>
+<img src=3D"https://mkto-trk.cisco.com/trk?t=3D1&mid=3DNTY0LVdIVi0zMjMAAAGe=
+OClEj6iWl7XTI8M9cLx-IbRNZELzKvC_AHUdyTM3JinwA-RrCSSAIaJI43MoDjOUNxPVD5KCWk9=
+Kjq6P9LbLJiopbiKq2S8VcqNCbtNK7wmTFEnQExPMn5f7l7fUOensT8rxC-enIUkN6dIW7GzE" =
+width=3D"1" height=3D"1" style=3D"display:none !important;" alt=3D"" />
+
+<!--This is a comment -->
+</body>
+</html>
+------=_Part_156296179_696045984.1763506689170--

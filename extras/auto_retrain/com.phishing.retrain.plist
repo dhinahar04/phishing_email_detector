@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  macOS LaunchAgent for Automatic Retraining
+
+  Installation:
+    1. Edit paths below to match your installation
+    2. cp scripts/com.phishing.retrain.plist ~/Library/LaunchAgents/
+    3. launchctl load ~/Library/LaunchAgents/com.phishing.retrain.plist
+
+  Check status:
+    launchctl list | grep phishing
+
+  View logs:
+    tail -f ~/Library/Logs/phishing-retrain.log
+
+  Unload:
+    launchctl unload ~/Library/LaunchAgents/com.phishing.retrain.plist
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.phishing.retrain</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/path/to/phishing-detector/scripts/retrain_service.sh</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/path/to/phishing-detector</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>RETRAIN_SCHEDULE</key>
+        <string>daily</string>
+        <key>RETRAIN_TIME</key>
+        <string>02:00</string>
+        <key>RETRAIN_MIN_EMAILS</key>
+        <string>10</string>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/YOUR_USERNAME/Library/Logs/phishing-retrain.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/YOUR_USERNAME/Library/Logs/phishing-retrain-error.log</string>
+
+</dict>
+</plist>

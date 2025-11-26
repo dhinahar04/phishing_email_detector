@@ -1,0 +1,740 @@
+Delivered-To: kit27.cse18@gmail.com
+Received: by 2002:a05:651c:e12:b0:37a:57b6:2082 with SMTP id 18csp352206ljf;
+        Tue, 18 Nov 2025 23:33:56 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHIxakv9HLmpMe3H67q/+tylRSFqZXitymy0B7Tk3TupmYytpruOYW/L9acr/xH8IRCQuvt
+X-Received: by 2002:a17:90b:3806:b0:340:5c27:a096 with SMTP id 98e67ed59e1d1-343f9e92a24mr21642954a91.6.1763537635704;
+        Tue, 18 Nov 2025 23:33:55 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1763537635; cv=none;
+        d=google.com; s=arc-20240605;
+        b=JDMxwQPK63lahB6OumcKwnu++3KgGQMiXgrVhVIiEedKk4oSVzKuLg/3+N4PxfRs2J
+         sFzjRY+rl4SGhHkahB3WfNyCM4D8TC2BeYlyaycKDv7NUE6ftWmX8/rSjoYuXVOLLxAv
+         YlhJ93LjNcCNeE6q7DPcfStePxKdm+wHKGas5QXP4UJ1YUWt7FxPpI+ymVO7IhlAF9Z2
+         6Brf74yZeBw/d/GQqC/SvdyjASH7sj+XrZvH7Pvz+i2GJUnsG7I+VRGPR3WIWSORIV3y
+         KQ9SvlV1GndPcae3y1KaHZUeORU3dnhGxXy98b0gwxMJ9zso7gi9dUkfRXz/J0GE7tdB
+         IQBg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=unique-id:feedback-id:accept:format:charset:mime-version:subject:to
+         :from:message-id:date:dkim-signature;
+        bh=4/HfGbHdJTTnBw4ZNqgZ52LJmX3kEzKoLOqAZ0QPxlA=;
+        fh=jD1cuzhGF7KUmnYY4i7JzxTwqYZrtetNhFkQ2V7ePF8=;
+        b=aNLm0hR3SzfZG53E52x0aSxlbjxoNYDIbo8tyuetp+QxCp1h2xmSOnnzZiiOhfQCAs
+         qV5BE/AcZM/OYhoWdNX0vi5zsi7fia6WoOrn+maQ07mHoXRnZBetOEM3W6jRMW7teHlH
+         68zVsIFOMHSkZgg3ne1el8mM6NDB3GoIPwf6f0IW/llt8ZRnUNjtLl0jQGLm+AB+iY5O
+         AHQU7GTOeA5kGaKtiT+qoYSQyAed4Sgt72YISJjZMVBgj3Cy75u0SoDmSUFGzkU+QnGZ
+         ir+BqoXSnk1hDJQyOVON/3G2k1jTs7fS/6S6/hzCo0q9t9YGe9GzZKCwmWBVZ9Gf/Sw6
+         a5Qw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@naukri.com header.s=2015 header.b=UFJ15vDU;
+       spf=pass (google.com: domain of eventnc@naukri.com designates 103.214.122.117 as permitted sender) smtp.mailfrom=eventnc@naukri.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=naukri.com
+Return-Path: <eventnc@naukri.com>
+Received: from nmail-one03-two14-one22-one17.naukri.com (nmail-one03-two14-one22-one17.naukri.com. [103.214.122.117])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-bc3778e0de6si8803946a12.965.2025.11.18.23.33.53
+        for <kit27.cse18@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 18 Nov 2025 23:33:55 -0800 (PST)
+Received-SPF: pass (google.com: domain of eventnc@naukri.com designates 103.214.122.117 as permitted sender) client-ip=103.214.122.117;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@naukri.com header.s=2015 header.b=UFJ15vDU;
+       spf=pass (google.com: domain of eventnc@naukri.com designates 103.214.122.117 as permitted sender) smtp.mailfrom=eventnc@naukri.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=naukri.com
+Return-Path: <eventnc@naukri.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=naukri.com; s=2015;
+	t=1763537627; bh=4/HfGbHdJTTnBw4ZNqgZ52LJmX3kEzKoLOqAZ0QPxlA=;
+	h=Date:From:To:Subject;
+	b=UFJ15vDUKRzTKoUU1Gz+mbG6oIA16OJ57/15cn+dnVvKv3e7zAnT/bZwjF7tgsXao
+	 m41x1CZXNY7PfQNkD7e000LTTKQbggxC0aM+08ZaLE9PsYIExtSnpdlH+K6n6Xp4YU
+	 KKhIIJIgIjlRy0/7Trv8J5HnlrYuMcaHF96nZN2g=
+Received: from [172.10.221.15] ([172.10.221.15:5740] helo=ni-central-communication-prod-service-consumer-nicampus-692x7g8)
+	by n5plimla02.ieil.net (envelope-from <eventnc@naukri.com>)
+	(ecelerity 3.6.13.50539 r(Core:3.6.13.0)) with ESMTP
+	id A3/6A-63764-BD27D196; Wed, 19 Nov 2025 13:03:47 +0530
+Date: Wed, 19 Nov 2025 13:03:47 +0530 (IST)
+Message-ID: <A3.6A.63764.BD27D196@n5plimla02.ieil.net>
+From: Naukri Alerts <eventnc@naukri.com>
+To: kit27.cse18@gmail.com
+Subject: Last chance to enrol for a webinar on NaukriCampus
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_1415298_368605636.1763537627166"
+CharSet: UTF-8
+format: flowed
+accept: application/json
+feedback-id: 1124_nc_webinar_reg_end_nc_webinar_reg_end_start_46f4_mail:infoedge
+unique-id: 456|x|691d71ad15d778a2c2afb953|x|691d72da516dbd864c8f2217|x||x|1
+
+------=_Part_1415298_368605636.1763537627166
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_1415299_1103902954.1763537627166"
+
+------=_Part_1415299_1103902954.1763537627166
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns=3D"http://www.w3.=
+org/1999/xhtml"><head><meta http-equiv=3D"Content-Type" content=3D"text/htm=
+l; charset=3Dutf-8">
+ <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1=
+.0">
+ <title></title>
+  <link rel=3D"preconnect" href=3D"https://fonts.googleapis.com">
+  <link rel=3D"preconnect" href=3D"https://fonts.gstatic.com" crossorigin>
+  <link href=3D"https://fonts.googleapis.com/css2?family=3DRoboto:wght@400;=
+500;700;900&amp;display=3Dswap" rel=3D"stylesheet">
+ <style>
+  body{font-family: 'Roboto', Arial, Helvetica, sans-serif;}
+ =20
+  @media only screen and (max-width:479px)
+  {
+=09  .fluidTable{ width:98%!important;}
+=09  .fluidTable2{ width:90%!important;}
+  }
+ </style>
+</head>
+<body style=3D"background:#EEF2F6"><div style=3D"font-size:0.1px;">
+<img src=3D"https://logs.naukri.com/collectorapi/v1/uba?data=3D%7B%22device=
+Type%22%3A%22WEB%22%2C%22additionalParams%22%3A%7B%7D%2C%22campaignId%22%3A=
+%224480%22%2C%22communicationId%22%3A%22691d72da516dbd864c8f2217%22%2C%22co=
+mmunicationType%22%3A%22mail%22%2C%22journeyId%22%3A%221124_20251119%22%2C%=
+22userId%22%3A%22305641280%22%2C%22eventCode%22%3A%221124_nc_webinar_reg_en=
+d_nc_webinar_reg_end_start_46f4_mail%22%2C%22encEmail%22%3A%22b74cdd902aa02=
+75fdd6c50ff6531bd10da52f014e93a6462577fdc0fee71ac0492d2d6ac5f21f68f%22%2C%2=
+2mailType%22%3A%22mmm_promotional%22%2C%22mailerId%22%3A%22784740%22%2C%22r=
+equestId%22%3A%22691d71ad15d778a2c2afb953%22%2C%22appId%22%3A%22456%22%2C%2=
+2segmentId%22%3A%22129078%22%2C%22tenantId%22%3A%221%22%2C%22eventName%22%3=
+A%22communicationOpen%22%2C%22parentActivityId%22%3A%22725306%22%2C%22paren=
+tJourneyId%22%3A%221124%22%7D" height=3D"0px" width=3D"0px">
+</div>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" alig=
+n=3D"center" bgcolor=3D"#EEF2F6" style=3D"border-collapse: collapse; mso-ta=
+ble-lspace: 0pt; mso-table-rspace: 0pt;">
+ <tbody><tr>
+  <td valign=3D"top">
+   <table border=3D"0" align=3D"center" cellpadding=3D"0" cellspacing=3D"0"=
+ bgcolor=3D"#ffffff" style=3D"max-width:600px; border-collapse: collapse; m=
+so-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tbody><tr>
+     <td valign=3D"top" width=3D"600">
+      <table width=3D"100%" align=3D"center" border=3D"0" cellspacing=3D"0"=
+ cellpadding=3D"0" style=3D"border-collapse:collapse; mso-table-lspace:0pt;=
+ mso-table-rspace:0pt;">
+       <tbody><tr>
+        <td valign=3D"top">
+         <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" style=3D"min-width:280px;">
+          <tbody><tr>
+           <td valign=3D"top" height=3D"28" colspan=3D"3"></td>
+          </tr>
+          <tr>
+           <td width=3D"25">&nbsp;</td>
+           <td valign=3D"top" width=3D"560">
+            <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">
+             <tbody><tr>
+              <td valign=3D"top" align=3D"left"><a href=3D"https://cm.naukr=
+i.com?data=3D%7B%22deviceType%22%3A%22WEB%22%2C%22additionalParams%22%3A%7B=
+%7D%2C%22campaignId%22%3A%224480%22%2C%22communicationId%22%3A%22691d72da51=
+6dbd864c8f2217%22%2C%22clickPosition%22%3A1%2C%22communicationType%22%3A%22=
+mail%22%2C%22journeyId%22%3A%221124_20251119%22%2C%22userId%22%3A%22dd494b3=
+f37f6d5cb8cb901bcbf66033bc3d10434874abafbf79fd6c296adc7b6%22%2C%22eventCode=
+%22%3A%221124_nc_webinar_reg_end_nc_webinar_reg_end_start_46f4_mail%22%2C%2=
+2encEmail%22%3A%22b74cdd902aa0275fdd6c50ff6531bd10da52f014e93a6462577fdc0fe=
+e71ac0492d2d6ac5f21f68f%22%2C%22mailType%22%3A%22mmm_promotional%22%2C%22ma=
+ilerId%22%3A%22784740%22%2C%22segmentId%22%3A%22129078%22%2C%22appId%22%3A4=
+56%2C%22tenantId%22%3A%221%22%2C%22parentActivityId%22%3A%22725306%22%2C%22=
+eventName%22%3A%22communicationClick%22%2C%22parentJourneyId%22%3A%221124%2=
+2%7D&amp;redirect=3Dhttps%3A%2F%2Fwww.naukri.com%2Fcampus%3Futm_campaign%3D=
+nc_webinar_reg_end%26utm_medium%3Demail%26utm_content%3D1124_nc_webinar_reg=
+_end_nc_webinar_reg_end_start_46f4%26utm_term%3D784740%26utm_source%3Dmail"=
+ target=3D"_blank"><img src=3D"https://www.ieplads.com/mailers/2024_ui/nauk=
+ri/nc-upload-march/campus_logo.png" width=3D"140" align=3D"left" alt=3D"nau=
+kri.com" style=3D"max-width:140px;"></a></td>
+              <td valign=3D"middle" align=3D"right">
+                                         =20
+              </td>
+             </tr>
+             </tbody></table>
+            </td>
+            <td width=3D"20">&nbsp;</td>
+           </tr>
+           <tr>
+            <td valign=3D"top" height=3D"19" colspan=3D"3"></td>
+           </tr>
+          </tbody></table>
+         </td>
+       </tr>
+       <tr>
+        <td valign=3D"top">
+         <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" bgcolor=3D"#fcf5f4" background=3D"https://www.ieplads.com/mailers/20=
+23_ui/naukri/naukri-campus-06dec/images/bg2.png" style=3D"background-repeat=
+:no-repeat; background-position:left top;">
+          <tbody><tr>
+           <td width=3D"10"><img src=3D"https://www.ieplads.com/mailers/202=
+3_ui/naukri/career-camp-15feb/images/space.png" width=3D"2" height=3D"2"></=
+td>
+           <td valign=3D"top" align=3D"center">
+            <table width=3D"84%" align=3D"center" border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0" style=3D"min-width:280px;" class=3D"fluidTable">=
+=20
+             <tbody><tr>
+              <td valign=3D"top" height=3D"25"></td>
+             </tr>
+             <tr>
+              <td valign=3D"top" align=3D"right"><img src=3D"https://www.ie=
+plads.com/mailers/2023_ui/naukri/naukri-campus-06dec/images/i1.png" width=
+=3D"12" style=3D"max-width:12px;"></td>
+             </tr>
+             <tr>
+              <td valign=3D"top" align=3D"center" style=3D"font-family:'Rob=
+oto', Arial, Helvetica, sans-serif; font-size:14px; line-height:18px; color=
+:#979EC2; font-weight:500;">Expert Speaks</td>
+             </tr>                                      =20
+             <tr>
+              <td valign=3D"top" height=3D"4"></td>
+             </tr>
+             <tr>
+              <td valign=3D"top" align=3D"center" style=3D"font-family:'Rob=
+oto', Arial, Helvetica, sans-serif; font-size:24px; line-height:31px; color=
+:#121224; font-weight:700;">Careers in AI and Healthcare: The Future Skills=
+ You Need to Succeed</td>
+             </tr>                         =20
+             <tr>
+              <td valign=3D"top" height=3D"12"></td>
+             </tr>
+             <tr>
+              <td valign=3D"top" align=3D"center" style=3D"font-family:'Rob=
+oto', Arial, Helvetica, sans-serif; font-size:18px; line-height:22px; color=
+:#8951FF; font-weight:700; text-transform:uppercase;">2 DAYS LEFT!</td>
+             </tr>=20
+             <tr>
+              <td valign=3D"top" height=3D"20"></td>
+             </tr>
+             <tr>
+              <td valign=3D"top" align=3D"center">
+               <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpad=
+ding=3D"0">
+                <tbody><tr>
+                 <td width=3D"20"><img src=3D"https://www.ieplads.com/maile=
+rs/2023_ui/naukri/naukri-campus-06dec/images/i2.png" width=3D"20" style=3D"=
+max-width:20px;"></td>
+                 <td valign=3D"top" align=3D"center">
+                  <table width=3D"150" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" bgcolor=3D"#275DF5" style=3D"border-radius:20px;">
+                   <tbody><tr>
+                    <td width=3D"8"><img src=3D"https://www.ieplads.com/mai=
+lers/2023_ui/naukri/career-camp-15feb/images/space.png" width=3D"2" height=
+=3D"2"></td>
+                    <td height=3D"38" align=3D"center"><a href=3D"https://c=
+m.naukri.com?data=3D%7B%22deviceType%22%3A%22WEB%22%2C%22additionalParams%2=
+2%3A%7B%7D%2C%22campaignId%22%3A%224480%22%2C%22communicationId%22%3A%22691=
+d72da516dbd864c8f2217%22%2C%22clickPosition%22%3A2%2C%22communicationType%2=
+2%3A%22mail%22%2C%22journeyId%22%3A%221124_20251119%22%2C%22userId%22%3A%22=
+dd494b3f37f6d5cb8cb901bcbf66033bc3d10434874abafbf79fd6c296adc7b6%22%2C%22ev=
+entCode%22%3A%221124_nc_webinar_reg_end_nc_webinar_reg_end_start_46f4_mail%=
+22%2C%22encEmail%22%3A%22b74cdd902aa0275fdd6c50ff6531bd10da52f014e93a646257=
+7fdc0fee71ac0492d2d6ac5f21f68f%22%2C%22mailType%22%3A%22mmm_promotional%22%=
+2C%22mailerId%22%3A%22784740%22%2C%22segmentId%22%3A%22129078%22%2C%22appId=
+%22%3A456%2C%22tenantId%22%3A%221%22%2C%22parentActivityId%22%3A%22725306%2=
+2%2C%22eventName%22%3A%22communicationClick%22%2C%22parentJourneyId%22%3A%2=
+21124%22%7D&amp;redirect=3Dhttps%3A%2F%2Fwww.naukri.com%2Fcampus%2Fwebinars=
+%2F33315%3Futm_source%3D33315_expertspeakendmail%26utm_medium%3Demail%26utm=
+_campaign%3Dexpertspeakinformation%26utm_content%3D1124_nc_webinar_reg_end_=
+nc_webinar_reg_end_start_46f4%26utm_term%3D784740" target=3D"_blank" style=
+=3D"font-family:'Roboto', Arial, Helvetica, sans-serif; font-size:14px; tex=
+t-decoration:none; color:#ffffff; display:block; line-height:38px; font-wei=
+ght:700;">Enrol Now</a></td>
+                    <td width=3D"8"><img src=3D"https://www.ieplads.com/mai=
+lers/2023_ui/naukri/career-camp-15feb/images/space.png" width=3D"2" height=
+=3D"2"></td>
+                   </tr>
+                  </tbody></table>
+                 </td>
+                 <td width=3D"20"></td>
+                </tr>
+               </tbody></table>
+              </td>
+             </tr>
+             <tr>
+              <td valign=3D"top" height=3D"24"></td>
+             </tr>                  =20
+            </tbody></table>
+           </td>
+           <td width=3D"10"><img src=3D"https://www.ieplads.com/mailers/202=
+3_ui/naukri/career-camp-15feb/images/space.png" width=3D"2" height=3D"2"></=
+td>
+          </tr>
+         </tbody></table>
+        </td>
+       </tr>=20
+       <tr>
+        <td valign=3D"top">
+         <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" bgcolor=3D"#fcf5f4">
+          <tbody><tr>
+           <td width=3D"10"><img src=3D"https://www.ieplads.com/mailers/202=
+3_ui/naukri/career-camp-15feb/images/space.png" width=3D"2" height=3D"2"></=
+td>
+           <td valign=3D"top" align=3D"center">
+            <table width=3D"86%" align=3D"center" border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0" style=3D"min-width:280px;" class=3D"fluidTable">=
+=20
+             <tbody><tr>
+              <td valign=3D"top">
+               <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpad=
+ding=3D"0" bgcolor=3D"#ffffff" style=3D"border:1px solid #F7F7F9; border-ra=
+dius:16px;">
+                <tbody><tr>
+                 <td valign=3D"top" colspan=3D"3" height=3D"24"></td>
+                </tr>
+                <tr>
+                 <td valign=3D"top" colspan=3D"3">
+                  <table width=3D"100%" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"0">
+                   <tbody><tr>
+                    <td width=3D"16"><img src=3D"https://www.ieplads.com/ma=
+ilers/2023_ui/naukri/career-camp-15feb/images/space.png" width=3D"2" height=
+=3D"2"></td>
+                    <td valign=3D"top">
+                     <table width=3D"100%" border=3D"0" cellspacing=3D"0" c=
+ellpadding=3D"0">
+                      <tbody><tr>
+                       <td valign=3D"top">
+                        <table align=3D"left" border=3D"0" cellspacing=3D"0=
+" cellpadding=3D"0">
+                         <tbody><tr>
+                          <td style=3D"font-family:'Roboto', Arial, Helveti=
+ca, sans-serif; font-size:18px; line-height:24px; color:#121224; font-weigh=
+t:700;">The expert lineup is lit</td>
+                          <td width=3D"5"></td>
+                          <td width=3D"17"><img src=3D"https://www.ieplads.=
+com/mailers/2023_ui/naukri/naukri-campus-06dec/images/i3.png" width=3D"17" =
+style=3D"max-width:17px;"></td>
+                         </tr>
+                        </tbody></table>
+                       </td>
+                      </tr>
+                      <tr>
+                       <td valign=3D"top" height=3D"20"></td>
+                      </tr>
+                     =20
+                      <tr>
+                       <td valign=3D"top">
+                        <table align=3D"left" border=3D"0" cellspacing=3D"0=
+" cellpadding=3D"0">
+                         <tbody><tr>
+                          <td width=3D"60"><img src=3D"https://media.naukri=
+.com/photo/fnevegalpanpr/l244%253AJu0KG03Nr354a8bRNwgHbJl7w3smbck6g114mJVM6=
+QRCjmzhQLJ%252BSvE48c4pPA%253D%253D" width=3D"60" height=3D"60" style=3D"ma=
+x-width:60px;border-radius:100%;"></td>
+                          <td width=3D"12"><img src=3D"https://www.ieplads.=
+com/mailers/2023_ui/naukri/career-camp-15feb/images/space.png" width=3D"2" =
+height=3D"2"></td>                         =20
+                          <td>
+                           <table width=3D"100%" border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0">
+                            <tbody><tr>
+                             <td style=3D"font-family:'Roboto', Arial, Helv=
+etica, sans-serif; font-size:14px; line-height:18px; color:#121224; font-we=
+ight:500;">Dr. Avneesh Khare </td>
+                            </tr>
+                            <tr>
+                             <td valign=3D"top" height=3D"5"></td>
+                            </tr>
+                            <tr>
+                             <td style=3D"font-family:'Roboto', Arial, Helv=
+etica, sans-serif; font-size:14px; line-height:19px; color:#474D6A; font-we=
+ight:400;">Educator and Advisor, Doctors AI / ICAIM, India &amp; Consultant=
+</td>
+                            </tr>
+                           </tbody></table>
+                          </td>
+                         </tr>
+                        </tbody></table>
+                       </td>
+                      </tr>
+                      <tr>
+                       <td valign=3D"top" height=3D"12"></td>
+                      </tr>
+                     =20
+                      <tr>
+                       <td valign=3D"top" height=3D"32"></td>
+                      </tr>
+                      <tr>
+                       <td valign=3D"top" style=3D"font-family:'Roboto', Ar=
+ial, Helvetica, sans-serif; font-size:18px; line-height:24px; color:#121224=
+; font-weight:700;">Here's what you can expect</td>
+                      </tr>
+                      <tr>
+                       <td valign=3D"top" height=3D"20"></td>
+                      </tr>
+                      <tr>
+                       <td valign=3D"top">
+                        <table align=3D"left" border=3D"0" cellspacing=3D"0=
+" cellpadding=3D"0">
+                         <tbody><tr>                       =20
+                          <td valign=3D"top" style=3D"font-family:'Roboto',=
+ Arial, Helvetica, sans-serif; font-size:14px; line-height:19px; color:#474=
+D6A; font-weight:400;"><div data-offset-key=3D"c2gpp-0-0"> <p>By attending =
+this session, students will:</p> <ul> <li>Understand how AI is creating new=
+ career paths in medicine, pharma, and healthcare technology</li> <li>Learn=
+ the key skills=E2=80=94technical, analytical, and interpersonal - needed t=
+o thrive in AI-driven healthcare</li> <li>Gain clarity on how to prepare ea=
+rly for roles in medical AI and health innovation</li> <li>Explore real-wor=
+ld applications of AI in diagnosis, research, and hospital management</li> =
+<li>Discover global learning programs, certifications, and research avenues=
+ in AI and healthcare</li> </ul> </div></td>
+                         </tr>
+                         <tr>
+                          <td valign=3D"top" height=3D"12" colspan=3D"3"></=
+td>
+                         </tr>
+                        </tbody></table>
+                       </td>
+                      </tr>
+                      <tr>
+                       <td valign=3D"top" height=3D"20" style=3D"border-bot=
+tom:1px solid #F7F7F9;"></td>
+                      </tr>
+                      <tr>
+                       <td valign=3D"top" height=3D"20"></td>
+                      </tr>
+                      <tr>
+                       <td valign=3D"top" align=3D"center">
+                        <table width=3D"74%" align=3D"center" border=3D"0" =
+cellspacing=3D"0" cellpadding=3D"0" style=3D"min-width:280px;">
+                         <tbody><tr>
+                          <td valign=3D"top" align=3D"center" style=3D"font=
+-family:'Roboto', Arial, Helvetica, sans-serif; font-size:14px; line-height=
+:20px; color:#474D6A; font-weight:400;">Grab your coffee, join us live wher=
+ever you are for our webinar on <span style=3D"color:#121224; font-weight:5=
+00;">Careers in AI and Healthcare: The Future Skills You Need to Succeed</s=
+pan> on <span style=3D"color:#121224; font-weight:500;">21 Nov, Friday</spa=
+n></td>
+                         </tr>
+                        </tbody></table>
+                       </td>
+                      </tr>
+                      <tr>
+                       <td valign=3D"top" height=3D"20"></td>
+                      </tr>
+                      <tr>
+                       <td valign=3D"top" align=3D"center">
+                        <table width=3D"150" border=3D"0" cellspacing=3D"0"=
+ cellpadding=3D"0" bgcolor=3D"#275DF5" style=3D"border-radius:20px;">
+                         <tbody><tr>
+                          <td width=3D"8"><img src=3D"https://www.ieplads.c=
+om/mailers/2023_ui/naukri/career-camp-15feb/images/space.png" width=3D"2" h=
+eight=3D"2"></td>
+                          <td height=3D"38" align=3D"center"><a href=3D"htt=
+ps://cm.naukri.com?data=3D%7B%22deviceType%22%3A%22WEB%22%2C%22additionalPa=
+rams%22%3A%7B%7D%2C%22campaignId%22%3A%224480%22%2C%22communicationId%22%3A=
+%22691d72da516dbd864c8f2217%22%2C%22clickPosition%22%3A3%2C%22communication=
+Type%22%3A%22mail%22%2C%22journeyId%22%3A%221124_20251119%22%2C%22userId%22=
+%3A%22dd494b3f37f6d5cb8cb901bcbf66033bc3d10434874abafbf79fd6c296adc7b6%22%2=
+C%22eventCode%22%3A%221124_nc_webinar_reg_end_nc_webinar_reg_end_start_46f4=
+_mail%22%2C%22encEmail%22%3A%22b74cdd902aa0275fdd6c50ff6531bd10da52f014e93a=
+6462577fdc0fee71ac0492d2d6ac5f21f68f%22%2C%22mailType%22%3A%22mmm_promotion=
+al%22%2C%22mailerId%22%3A%22784740%22%2C%22segmentId%22%3A%22129078%22%2C%2=
+2appId%22%3A456%2C%22tenantId%22%3A%221%22%2C%22parentActivityId%22%3A%2272=
+5306%22%2C%22eventName%22%3A%22communicationClick%22%2C%22parentJourneyId%2=
+2%3A%221124%22%7D&amp;redirect=3Dhttps%3A%2F%2Fwww.naukri.com%2Fcampus%2Fwe=
+binars%2F33315%3Futm_source%3D33315_expertspeakendmail%26utm_medium%3Demail=
+%26utm_campaign%3Dexpertspeakinformation%26utm_content%3D1124_nc_webinar_re=
+g_end_nc_webinar_reg_end_start_46f4%26utm_term%3D784740" target=3D"_blank" =
+style=3D"font-family:'Roboto', Arial, Helvetica, sans-serif; font-size:14px=
+; text-decoration:none; color:#ffffff; display:block; line-height:38px; fon=
+t-weight:700;">Enrol Now</a></td>
+                          <td width=3D"8"><img src=3D"https://www.ieplads.c=
+om/mailers/2023_ui/naukri/career-camp-15feb/images/space.png" width=3D"2" h=
+eight=3D"2"></td>
+                         </tr>
+                        </tbody></table>
+                       </td>
+                      </tr>
+                     </tbody></table>
+                    </td>                   =20
+                    <td width=3D"16"><img src=3D"https://www.ieplads.com/ma=
+ilers/2023_ui/naukri/career-camp-15feb/images/space.png" width=3D"2" height=
+=3D"2"></td>
+                   </tr>
+                  </tbody></table>
+                 </td>
+                </tr>
+                <tr>
+                 <td valign=3D"top" colspan=3D"3" height=3D"30"></td>
+                </tr>                                               =20
+               </tbody></table>
+              </td>
+             </tr>
+             <tr>
+              <td valign=3D"top" height=3D"24"></td>
+             </tr>  =20
+             <tr>
+              <td valign=3D"top" align=3D"center" style=3D"font-family:'Rob=
+oto', Arial, Helvetica, sans-serif; font-size:14px; line-height:19px; color=
+:#121224; font-weight:700;">Can't make it to the event?</td>
+             </tr> =20
+             <tr>
+              <td valign=3D"top" height=3D"4"></td>
+             </tr> =20
+             <tr>
+              <td valign=3D"top" align=3D"center">
+               <table width=3D"74%" align=3D"center" border=3D"0" cellspaci=
+ng=3D"0" cellpadding=3D"0" style=3D"min-width:280px;">
+                <tbody><tr>
+                 <td valign=3D"top" align=3D"center" style=3D"font-family:'=
+Roboto', Arial, Helvetica, sans-serif; font-size:14px; line-height:19px; co=
+lor:#474D6A; font-weight:400;"><a href=3D"https://cm.naukri.com?data=3D%7B%=
+22deviceType%22%3A%22WEB%22%2C%22additionalParams%22%3A%7B%7D%2C%22campaign=
+Id%22%3A%224480%22%2C%22communicationId%22%3A%22691d72da516dbd864c8f2217%22=
+%2C%22clickPosition%22%3A4%2C%22communicationType%22%3A%22mail%22%2C%22jour=
+neyId%22%3A%221124_20251119%22%2C%22userId%22%3A%22dd494b3f37f6d5cb8cb901bc=
+bf66033bc3d10434874abafbf79fd6c296adc7b6%22%2C%22eventCode%22%3A%221124_nc_=
+webinar_reg_end_nc_webinar_reg_end_start_46f4_mail%22%2C%22encEmail%22%3A%2=
+2b74cdd902aa0275fdd6c50ff6531bd10da52f014e93a6462577fdc0fee71ac0492d2d6ac5f=
+21f68f%22%2C%22mailType%22%3A%22mmm_promotional%22%2C%22mailerId%22%3A%2278=
+4740%22%2C%22segmentId%22%3A%22129078%22%2C%22appId%22%3A456%2C%22tenantId%=
+22%3A%221%22%2C%22parentActivityId%22%3A%22725306%22%2C%22eventName%22%3A%2=
+2communicationClick%22%2C%22parentJourneyId%22%3A%221124%22%7D&amp;redirect=
+=3Dhttps%3A%2F%2Fwww.naukri.com%2Fcampus%2Fwebinars%2F33315%3Futm_campaign%=
+3Dnc_webinar_reg_end%26utm_medium%3Demail%26utm_content%3D1124_nc_webinar_r=
+eg_end_nc_webinar_reg_end_start_46f4%26utm_term%3D784740%26utm_source%3Dmai=
+l" target=3D"_blank" style=3D"font-weight:500; color:#275DF5; text-decorati=
+on:none;">Enrol anyway</a> and we'll send you a recording of the webinar so=
+ you can catch up at your convenience.</td>
+                </tr>
+               </tbody></table>
+              </td>
+             </tr>  =20
+             <tr>
+              <td valign=3D"top" height=3D"30"></td>
+             </tr>                    =20
+            </tbody></table>
+           </td>
+           <td width=3D"10"><img src=3D"https://www.ieplads.com/mailers/202=
+3_ui/naukri/career-camp-15feb/images/space.png" width=3D"2" height=3D"2"></=
+td>
+          </tr>
+         </tbody></table>
+        </td>
+       </tr>
+       <tr>
+        <td valign=3D"top" height=3D"40"></td>
+       </tr>
+       <tr>
+        <td valign=3D"top">
+         <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0">
+          <tbody><tr>
+           <td width=3D"10"><img src=3D"https://www.ieplads.com/mailers/202=
+3_ui/naukri/career-camp-15feb/images/space.png" width=3D"2" height=3D"2"></=
+td>
+           <td valign=3D"top" align=3D"center">
+            <table width=3D"84%" align=3D"center" border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0" style=3D"min-width:280px;" class=3D"fluidTable2">
+             <tbody><tr>
+              <td valign=3D"top" align=3D"center">
+               <table cellspacing=3D"0" cellpadding=3D"0" align=3D"center">
+                <tbody><tr>
+                 <td width=3D"18" align=3D"center"><a href=3D"https://cm.na=
+ukri.com?data=3D%7B%22deviceType%22%3A%22WEB%22%2C%22additionalParams%22%3A=
+%7B%7D%2C%22campaignId%22%3A%224480%22%2C%22communicationId%22%3A%22691d72d=
+a516dbd864c8f2217%22%2C%22clickPosition%22%3A5%2C%22communicationType%22%3A=
+%22mail%22%2C%22journeyId%22%3A%221124_20251119%22%2C%22userId%22%3A%22dd49=
+4b3f37f6d5cb8cb901bcbf66033bc3d10434874abafbf79fd6c296adc7b6%22%2C%22eventC=
+ode%22%3A%221124_nc_webinar_reg_end_nc_webinar_reg_end_start_46f4_mail%22%2=
+C%22encEmail%22%3A%22b74cdd902aa0275fdd6c50ff6531bd10da52f014e93a6462577fdc=
+0fee71ac0492d2d6ac5f21f68f%22%2C%22mailType%22%3A%22mmm_promotional%22%2C%2=
+2mailerId%22%3A%22784740%22%2C%22segmentId%22%3A%22129078%22%2C%22appId%22%=
+3A456%2C%22tenantId%22%3A%221%22%2C%22parentActivityId%22%3A%22725306%22%2C=
+%22eventName%22%3A%22communicationClick%22%2C%22parentJourneyId%22%3A%22112=
+4%22%7D&amp;redirect=3Dhttps%3A%2F%2Fwww.facebook.com%2Ffirstnaukri%3Futm_c=
+ampaign%3Dnc_webinar_reg_end%26utm_medium%3Demail%26utm_content%3D1124_nc_w=
+ebinar_reg_end_nc_webinar_reg_end_start_46f4%26utm_term%3D784740" style=3D"=
+text-decoration:none; color:#4b69b0;" target=3D"_blank"><img src=3D"https:/=
+/www.ieplads.com/mailers/2021/naukri/call-intent-mailer/images/fb.png" alt=
+=3D"Facebook" style=3D"font-family:'Roboto', Arial; font-weight:400; text-a=
+lign:center; font-size:11px; color:#4b69b0; line-height:13px;" width=3D"21"=
+></a></td>
+                 <td width=3D"9"></td>
+                 <td width=3D"18" align=3D"center"><a href=3D"https://cm.na=
+ukri.com?data=3D%7B%22deviceType%22%3A%22WEB%22%2C%22additionalParams%22%3A=
+%7B%7D%2C%22campaignId%22%3A%224480%22%2C%22communicationId%22%3A%22691d72d=
+a516dbd864c8f2217%22%2C%22clickPosition%22%3A6%2C%22communicationType%22%3A=
+%22mail%22%2C%22journeyId%22%3A%221124_20251119%22%2C%22userId%22%3A%22dd49=
+4b3f37f6d5cb8cb901bcbf66033bc3d10434874abafbf79fd6c296adc7b6%22%2C%22eventC=
+ode%22%3A%221124_nc_webinar_reg_end_nc_webinar_reg_end_start_46f4_mail%22%2=
+C%22encEmail%22%3A%22b74cdd902aa0275fdd6c50ff6531bd10da52f014e93a6462577fdc=
+0fee71ac0492d2d6ac5f21f68f%22%2C%22mailType%22%3A%22mmm_promotional%22%2C%2=
+2mailerId%22%3A%22784740%22%2C%22segmentId%22%3A%22129078%22%2C%22appId%22%=
+3A456%2C%22tenantId%22%3A%221%22%2C%22parentActivityId%22%3A%22725306%22%2C=
+%22eventName%22%3A%22communicationClick%22%2C%22parentJourneyId%22%3A%22112=
+4%22%7D&amp;redirect=3Dhttps%3A%2F%2Ftwitter.com%2Fnaukri_campus%3Futm_camp=
+aign%3Dnc_webinar_reg_end%26utm_medium%3Demail%26utm_content%3D1124_nc_webi=
+nar_reg_end_nc_webinar_reg_end_start_46f4%26utm_term%3D784740" style=3D"tex=
+t-decoration:none; color:#37b1e1;" target=3D"_blank"><img src=3D"https://ww=
+w.ieplads.com/mailers/2022/naukri/23may/images/twitter.png" alt=3D"Twitter"=
+ style=3D"font-family:'Roboto', Arial; font-weight:400; text-align:center; =
+font-size:11px; color:#37b1e1; line-height:13px;" width=3D"21"></a></td>
+                 <td width=3D"9"></td>
+                 <td width=3D"18" align=3D"center"><a href=3D"https://cm.na=
+ukri.com?data=3D%7B%22deviceType%22%3A%22WEB%22%2C%22additionalParams%22%3A=
+%7B%7D%2C%22campaignId%22%3A%224480%22%2C%22communicationId%22%3A%22691d72d=
+a516dbd864c8f2217%22%2C%22clickPosition%22%3A7%2C%22communicationType%22%3A=
+%22mail%22%2C%22journeyId%22%3A%221124_20251119%22%2C%22userId%22%3A%22dd49=
+4b3f37f6d5cb8cb901bcbf66033bc3d10434874abafbf79fd6c296adc7b6%22%2C%22eventC=
+ode%22%3A%221124_nc_webinar_reg_end_nc_webinar_reg_end_start_46f4_mail%22%2=
+C%22encEmail%22%3A%22b74cdd902aa0275fdd6c50ff6531bd10da52f014e93a6462577fdc=
+0fee71ac0492d2d6ac5f21f68f%22%2C%22mailType%22%3A%22mmm_promotional%22%2C%2=
+2mailerId%22%3A%22784740%22%2C%22segmentId%22%3A%22129078%22%2C%22appId%22%=
+3A456%2C%22tenantId%22%3A%221%22%2C%22parentActivityId%22%3A%22725306%22%2C=
+%22eventName%22%3A%22communicationClick%22%2C%22parentJourneyId%22%3A%22112=
+4%22%7D&amp;redirect=3Dhttps%3A%2F%2Fwww.instagram.com%2Fnaukri_campus%2F%3=
+Futm_campaign%3Dnc_webinar_reg_end%26utm_medium%3Demail%26utm_content%3D112=
+4_nc_webinar_reg_end_nc_webinar_reg_end_start_46f4%26utm_term%3D784740" sty=
+le=3D"text-decoration:none; color:#7a4b9a;" target=3D"_blank"><img src=3D"h=
+ttps://www.ieplads.com/mailers/2021/naukri/call-intent-mailer/images/insta.=
+png" alt=3D"Instagram" style=3D"font-family:'Roboto', Arial; font-weight:40=
+0; text-align:center; font-size:11px; color:#7a4b9a; line-height:13px;" wid=
+th=3D"21"></a></td>
+                </tr>
+               </tbody></table>
+              </td>
+             </tr>
+             <tr>
+              <td valign=3D"top" height=3D"17"></td>
+             </tr>
+             <tr>
+              <td valign=3D"top" align=3D"center">
+               <table cellspacing=3D"0" cellpadding=3D"0" align=3D"center">
+                <tbody><tr>
+                 <td valign=3D"top" align=3D"center"><a href=3D"https://cm.=
+naukri.com?data=3D%7B%22deviceType%22%3A%22WEB%22%2C%22additionalParams%22%=
+3A%7B%7D%2C%22campaignId%22%3A%224480%22%2C%22communicationId%22%3A%22691d7=
+2da516dbd864c8f2217%22%2C%22clickPosition%22%3A8%2C%22communicationType%22%=
+3A%22mail%22%2C%22journeyId%22%3A%221124_20251119%22%2C%22userId%22%3A%22dd=
+494b3f37f6d5cb8cb901bcbf66033bc3d10434874abafbf79fd6c296adc7b6%22%2C%22even=
+tCode%22%3A%221124_nc_webinar_reg_end_nc_webinar_reg_end_start_46f4_mail%22=
+%2C%22encEmail%22%3A%22b74cdd902aa0275fdd6c50ff6531bd10da52f014e93a6462577f=
+dc0fee71ac0492d2d6ac5f21f68f%22%2C%22mailType%22%3A%22mmm_promotional%22%2C=
+%22mailerId%22%3A%22784740%22%2C%22segmentId%22%3A%22129078%22%2C%22appId%2=
+2%3A456%2C%22tenantId%22%3A%221%22%2C%22parentActivityId%22%3A%22725306%22%=
+2C%22eventName%22%3A%22communicationClick%22%2C%22parentJourneyId%22%3A%221=
+124%22%7D&amp;redirect=3Dhttps%3A%2F%2Fwww.naukri.com%2Fmnjuser%2Fsettings%=
+2Fcommunication%3Futm_campaign%3DNaukriCampus%26utm_medium%3Demail%26utm_so=
+urce%3Dunsubscribe%26utm_content%3D1124_nc_webinar_reg_end_nc_webinar_reg_e=
+nd_start_46f4%26utm_term%3D784740" style=3D"font-family:'Roboto', Arial, He=
+lvetica, sans-serif; text-align:center; font-size:11px; line-height:15px; c=
+olor:#979EC2; font-weight:400; text-decoration:none;" target=3D"_blank">Uns=
+ubscribe</a></td>
+                 <td style=3D"font-family:'Roboto', Arial, Helvetica, sans-=
+serif; text-align:center; font-size:11px; line-height:15px; color:#979EC2; =
+font-weight:400;" width=3D"15" height=3D"12" align=3D"center">|</td>
+                 <td valign=3D"top" align=3D"center"><a href=3D"https://cm.=
+naukri.com?data=3D%7B%22deviceType%22%3A%22WEB%22%2C%22additionalParams%22%=
+3A%7B%7D%2C%22campaignId%22%3A%224480%22%2C%22communicationId%22%3A%22691d7=
+2da516dbd864c8f2217%22%2C%22clickPosition%22%3A9%2C%22communicationType%22%=
+3A%22mail%22%2C%22journeyId%22%3A%221124_20251119%22%2C%22userId%22%3A%22dd=
+494b3f37f6d5cb8cb901bcbf66033bc3d10434874abafbf79fd6c296adc7b6%22%2C%22even=
+tCode%22%3A%221124_nc_webinar_reg_end_nc_webinar_reg_end_start_46f4_mail%22=
+%2C%22encEmail%22%3A%22b74cdd902aa0275fdd6c50ff6531bd10da52f014e93a6462577f=
+dc0fee71ac0492d2d6ac5f21f68f%22%2C%22mailType%22%3A%22mmm_promotional%22%2C=
+%22mailerId%22%3A%22784740%22%2C%22segmentId%22%3A%22129078%22%2C%22appId%2=
+2%3A456%2C%22tenantId%22%3A%221%22%2C%22parentActivityId%22%3A%22725306%22%=
+2C%22eventName%22%3A%22communicationClick%22%2C%22parentJourneyId%22%3A%221=
+124%22%7D&amp;redirect=3Dhttps%3A%2F%2Fw5.naukri.com%2Ffdbck%2Fmain%2Ffeedb=
+ack.php%3Futm_campaign%3DNaukriCampus%26utm_medium%3Demail%26utm_source%3Dr=
+eport%26utm_content%3D1124_nc_webinar_reg_end_nc_webinar_reg_end_start_46f4=
+%26utm_term%3D784740" style=3D"font-family:'Roboto', Arial, Helvetica, sans=
+-serif; text-align:left; font-size:11px; line-height:15px; color:#979EC2; f=
+ont-weight:400; text-decoration:none;" target=3D"_blank">Report a problem</=
+a></td>
+                </tr>
+               </tbody></table>
+              </td>
+             </tr>
+             <tr>
+              <td valign=3D"top" height=3D"12"></td>
+             </tr>
+             <tr>
+              <td valign=3D"top" align=3D"center" style=3D"font-family:'Rob=
+oto', Arial, Helvetica, sans-serif; font-size:11px; line-height:15px; color=
+:#979EC2; font-weight:400;">You have received this mail because your e-mail=
+ ID is registered with Naukri.com. This is a system-generated e-mail, pleas=
+e <span style=3D"white-space:nowrap;">don't reply</span> to this message.</=
+td>
+             </tr>
+             <tr>
+              <td valign=3D"top" height=3D"15"></td>
+             </tr>
+             <tr>
+              <td valign=3D"top" align=3D"center">
+               <table width=3D"98%" align=3D"center" border=3D"0" cellspaci=
+ng=3D"0" cellpadding=3D"0" style=3D"min-width:280px;">
+                <tbody><tr>
+                 <td valign=3D"top" align=3D"center" style=3D"font-family:'=
+Roboto', Arial, Helvetica, sans-serif; font-size:11px; line-height:15px; co=
+lor:#979EC2; font-weight:400;">Please do not pay any money to anyone who pr=
+omises to find you a job. IEIL shall not have any responsibility in this re=
+gard. We recommend that you visit our <a href=3D"https://cm.naukri.com?data=
+=3D%7B%22deviceType%22%3A%22WEB%22%2C%22additionalParams%22%3A%7B%7D%2C%22c=
+ampaignId%22%3A%224480%22%2C%22communicationId%22%3A%22691d72da516dbd864c8f=
+2217%22%2C%22clickPosition%22%3A10%2C%22communicationType%22%3A%22mail%22%2=
+C%22journeyId%22%3A%221124_20251119%22%2C%22userId%22%3A%22dd494b3f37f6d5cb=
+8cb901bcbf66033bc3d10434874abafbf79fd6c296adc7b6%22%2C%22eventCode%22%3A%22=
+1124_nc_webinar_reg_end_nc_webinar_reg_end_start_46f4_mail%22%2C%22encEmail=
+%22%3A%22b74cdd902aa0275fdd6c50ff6531bd10da52f014e93a6462577fdc0fee71ac0492=
+d2d6ac5f21f68f%22%2C%22mailType%22%3A%22mmm_promotional%22%2C%22mailerId%22=
+%3A%22784740%22%2C%22segmentId%22%3A%22129078%22%2C%22appId%22%3A456%2C%22t=
+enantId%22%3A%221%22%2C%22parentActivityId%22%3A%22725306%22%2C%22eventName=
+%22%3A%22communicationClick%22%2C%22parentJourneyId%22%3A%221124%22%7D&amp;=
+redirect=3Dhttps%3A%2F%2Fwww.naukri.com%2Ftermsconditions%3Futm_campaign%3D=
+NaukriCampus%26utm_medium%3Demail%26utm_source%3Dtnc%26utm_content%3D1124_n=
+c_webinar_reg_end_nc_webinar_reg_end_start_46f4%26utm_term%3D784740" target=
+=3D"_blank" style=3D"color:#457EFF; text-decoration:none;">Terms &amp; Cond=
+itions</a> and the <a href=3D"https://cm.naukri.com?data=3D%7B%22deviceType=
+%22%3A%22WEB%22%2C%22additionalParams%22%3A%7B%7D%2C%22campaignId%22%3A%224=
+480%22%2C%22communicationId%22%3A%22691d72da516dbd864c8f2217%22%2C%22clickP=
+osition%22%3A11%2C%22communicationType%22%3A%22mail%22%2C%22journeyId%22%3A=
+%221124_20251119%22%2C%22userId%22%3A%22dd494b3f37f6d5cb8cb901bcbf66033bc3d=
+10434874abafbf79fd6c296adc7b6%22%2C%22eventCode%22%3A%221124_nc_webinar_reg=
+_end_nc_webinar_reg_end_start_46f4_mail%22%2C%22encEmail%22%3A%22b74cdd902a=
+a0275fdd6c50ff6531bd10da52f014e93a6462577fdc0fee71ac0492d2d6ac5f21f68f%22%2=
+C%22mailType%22%3A%22mmm_promotional%22%2C%22mailerId%22%3A%22784740%22%2C%=
+22segmentId%22%3A%22129078%22%2C%22appId%22%3A456%2C%22tenantId%22%3A%221%2=
+2%2C%22parentActivityId%22%3A%22725306%22%2C%22eventName%22%3A%22communicat=
+ionClick%22%2C%22parentJourneyId%22%3A%221124%22%7D&amp;redirect=3Dhttps%3A=
+%2F%2Fcompany.naukri.com%2Flanding-page%2Ffakejobtrend%2Fnew%2Findex.html%3=
+Futm_campaign%3DNaukriCampus%26utm_medium%3Demail%26utm_source%3Dsecurity%2=
+6utm_content%3D1124_nc_webinar_reg_end_nc_webinar_reg_end_start_46f4%26utm_=
+term%3D784740" target=3D"_blank" style=3D"color:#457EFF; text-decoration:no=
+ne;">Security Advice</a> for more information.</td>
+                </tr>
+               </tbody></table>
+              </td>
+             </tr>           =20
+            </tbody></table>
+           </td>          =20
+          </tr>
+         </tbody></table>
+        </td>
+       </tr>                   =20
+       <tr>
+        <td valign=3D"top" height=3D"30"></td>
+       </tr>
+      </tbody></table>
+     </td>=20
+    </tr>
+   </tbody></table>
+  </td>
+ </tr>
+</tbody></table> =20
+
+</body></html>
+------=_Part_1415299_1103902954.1763537627166--
+
+------=_Part_1415298_368605636.1763537627166--

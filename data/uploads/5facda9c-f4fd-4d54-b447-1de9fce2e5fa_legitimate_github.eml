@@ -1,0 +1,47 @@
+From: notifications@github.com
+To: developer@mycompany.com
+Subject: [mycompany/phishing-detector] New issue opened: Bug in IOC extraction
+Date: Mon, 16 Oct 2025 10:30:00 +0000
+Message-ID: <issue-12345@github.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+You received this email because you are watching the mycompany/phishing-detector repository.
+
+New issue #42 opened by contributor123
+
+Bug in IOC extraction
+
+Issue Details:
+The IOC extractor is not correctly identifying email addresses when they contain special characters.
+
+Steps to reproduce:
+1. Upload an email with addresses like "user+tag@example.com"
+2. Check the extracted IOCs
+3. Notice the email is not captured correctly
+
+Expected behavior:
+All valid email addresses should be extracted
+
+Actual behavior:
+Email addresses with + or other special characters are missed
+
+Environment:
+- Python 3.10
+- IOC Extractor v1.0
+
+View on GitHub:
+https://github.com/mycompany/phishing-detector/issues/42
+
+Reply to this email directly or view it on GitHub.
+
+---
+You can manage your notification settings at:
+https://github.com/settings/notifications
+
+Unsubscribe from this thread:
+https://github.com/notifications/unsubscribe/ABC123DEF456
+
+GitHub, Inc.
+88 Colin P Kelly Jr St
+San Francisco, CA 94107

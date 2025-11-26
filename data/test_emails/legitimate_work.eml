@@ -1,0 +1,57 @@
+From: project.manager@company.com
+To: team@company.com
+Subject: Weekly Team Meeting - Project Status Update
+Date: Thu, 19 Oct 2025 13:00:00 +0000
+Message-ID: <meeting-20251019@company.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hi Team,
+
+Hope everyone is doing well! Here's a quick update on our project status and upcoming tasks.
+
+COMPLETED THIS WEEK:
+- Finished backend API development
+- Database schema finalized and deployed
+- Initial ML model training completed
+- Frontend dashboard mockups approved
+
+IN PROGRESS:
+- IOC extraction optimization (John)
+- Dashboard chart integration (Sarah)
+- Documentation updates (Mike)
+- Testing email parser edge cases (Lisa)
+
+UPCOMING TASKS:
+- Code review session - Friday 2 PM
+- User acceptance testing - Next week
+- Performance optimization - Sprint 3
+- Security audit preparation
+
+BLOCKERS:
+None at the moment. Great work everyone!
+
+NEXT MEETING:
+Monday, October 23 at 10:00 AM
+Conference Room B / Zoom Link: https://zoom.us/j/123456789
+
+AGENDA:
+1. Sprint review and retrospective
+2. Demo of completed features
+3. Planning for next sprint
+4. Q&A and discussion
+
+Please review the project documentation before the meeting:
+https://docs.company.com/projects/phishing-detector
+
+If you have any questions or concerns, feel free to reach out.
+
+Best regards,
+Jane Smith
+Project Manager
+Email: project.manager@company.com
+Phone: (555) 123-4567
+
+Company Inc.
+456 Business Ave
+Tech City, CA 94000

@@ -1,0 +1,647 @@
+Delivered-To: kit27.cse18@gmail.com
+Received: by 2002:a05:651c:214e:b0:37a:57b6:2082 with SMTP id m14csp99188ljc;
+        Wed, 19 Nov 2025 04:51:39 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEV9TCFqUG4roxZGSv3KrnRPqV9mMAkEPS+tCOM6UedgdOLw4SHiq1GWyoIN5SNub629pG+
+X-Received: by 2002:a17:902:fc86:b0:298:3aa6:c03d with SMTP id d9443c01a7336-2986a76a3e1mr226869145ad.57.1763556698741;
+        Wed, 19 Nov 2025 04:51:38 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1763556698; cv=none;
+        d=google.com; s=arc-20240605;
+        b=UUHKcFDH6wB0LT8zyK1+ERpzy7HRR6a73IWLlAqea0ZLOPiheAeh1i/LMz9XMi2Css
+         +wT0rKdzQehqCVOWlvT8PwDriC/oN/cAMSgFwWIEBJO5r4eYaZZOhZuwfJc+BOP8IxI5
+         svSgg8haayk5SZoKqmIfd3D6JxguoEXiyb5aIUCpuNPRvwV0ynPpWGT/jZjIt+4YnarT
+         cvYmKIC6xJUEqA/GcVBJernPW0zXelEx42SwfvnPjyXcWj/Evc6U6W+5T83HuOcwbV2E
+         vgJbUqPLI+sFHgPA+M4vu2rDR21WNS49ogWC4urSFYuS5o4zVEz3wsy7hYHLPMB1MVwo
+         P7Mg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=unique-id:feedback-id:accept:format:charset:mime-version:subject:to
+         :from:message-id:date:dkim-signature;
+        bh=3U+CjQHPFN4siUolkxFnOb62ddBaOkYVHVtVE9D6ylg=;
+        fh=jD1cuzhGF7KUmnYY4i7JzxTwqYZrtetNhFkQ2V7ePF8=;
+        b=fDnkQLVSpBiU42QXWMwWteXDEcIWjM22VNryPqUBrXX4stcVW9qJgjdWw6ti5a89vn
+         shtEn4o2DLOl+urs0DheMNCv1p1OqzQ4haEOboCXpqpLvdAiz3sZyFmF0sMLFPjmTMME
+         WLrgbUGREsuKLr3FN5kx17N8FhqKFHqWLq2o8yFN/mT17UAexblrlT2gibapX9kfP4gv
+         kJT67HhC52TePCJjOadbDa+32yCLdkbDupwsl0501OfmtniTI68PHuhhitaRIZs3/TvX
+         Ifqn7/3h8ywXKblPxBQq7MtKrY9qEkWIJp3wrh3IQ2R8L1Ucd6hya1M9ek1txoUoY00w
+         jc/w==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@naukri.com header.s=2015 header.b=MEEugSRW;
+       spf=pass (google.com: domain of eventnc@naukri.com designates 103.214.122.117 as permitted sender) smtp.mailfrom=eventnc@naukri.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=naukri.com
+Return-Path: <eventnc@naukri.com>
+Received: from nmail-one03-two14-one22-one17.naukri.com (nmail-one03-two14-one22-one17.naukri.com. [103.214.122.117])
+        by mx.google.com with ESMTPS id d9443c01a7336-2985c2c16acsi99951405ad.628.2025.11.19.04.51.37
+        for <kit27.cse18@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 19 Nov 2025 04:51:38 -0800 (PST)
+Received-SPF: pass (google.com: domain of eventnc@naukri.com designates 103.214.122.117 as permitted sender) client-ip=103.214.122.117;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@naukri.com header.s=2015 header.b=MEEugSRW;
+       spf=pass (google.com: domain of eventnc@naukri.com designates 103.214.122.117 as permitted sender) smtp.mailfrom=eventnc@naukri.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=naukri.com
+Return-Path: <eventnc@naukri.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=naukri.com; s=2015;
+	t=1763556693; bh=3U+CjQHPFN4siUolkxFnOb62ddBaOkYVHVtVE9D6ylg=;
+	h=Date:From:To:Subject;
+	b=MEEugSRWTCq7m4j/szU93uCqVeWCCKVkzVNuve/jX0Pgjau2l3TDWbegyBURVAUiq
+	 HOkpWXZkeRpHFXEUk9Na0992TdW4TWTaM9UGa+vqVS47fDIoxsCiGV6RXjGgUiHEy0
+	 7xTKHnZULNhXf1Z4+ku0YsrboH/wrHwmzpNddhNk=
+Received: from [172.10.221.15] ([172.10.221.15:17485] helo=ni-central-communication-prod-service-consumer-nicampus-692x7g8)
+	by n5plimla02.ieil.net (envelope-from <eventnc@naukri.com>)
+	(ecelerity 3.6.13.50539 r(Core:3.6.13.0)) with ESMTP
+	id 8C/DE-60768-55DBD196; Wed, 19 Nov 2025 18:21:33 +0530
+Date: Wed, 19 Nov 2025 18:21:33 +0530 (IST)
+Message-ID: <8C.DE.60768.55DBD196@n5plimla02.ieil.net>
+From: Naukri Alerts <eventnc@naukri.com>
+To: kit27.cse18@gmail.com
+Subject: naukri campus : Quiz is open for registration !!
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_2225544_1124243321.1763556693501"
+CharSet: UTF-8
+format: flowed
+accept: application/json
+feedback-id: 930_naukri_campus_contest_reg_start_1_day_naukri_campus_contest_reg_start_1_day_start_b5a9_mail:infoedge
+unique-id: 456|x|691db92091336148770972bf|x|691dbd53b0a6e7c4edc175f3|x||x|1
+
+------=_Part_2225544_1124243321.1763556693501
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_2225545_1605456328.1763556693501"
+
+------=_Part_2225545_1605456328.1763556693501
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns=3D"http://www.w3.=
+org/1999/xhtml"><head><meta http-equiv=3D"Content-Type" content=3D"text/htm=
+l; charset=3Dutf-8">
+ <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1=
+.0">
+ <title></title>
+  <link rel=3D"preconnect" href=3D"https://fonts.googleapis.com">
+  <link rel=3D"preconnect" href=3D"https://fonts.gstatic.com" crossorigin>
+  <link href=3D"https://fonts.googleapis.com/css2?family=3DRoboto:wght@400;=
+500;700;900&amp;display=3Dswap" rel=3D"stylesheet">
+ <style>
+  body{font-family: 'Roboto', Arial, Helvetica, sans-serif;}
+ =20
+  @media only screen and (max-width:479px)
+  {
+=09  .fluidTable{ width:98%!important;}
+=09  .fluidTable2{ width:90%!important;}
+  }
+ </style>=20
+</head>
+<body style=3D"background:#EEF2F6"><div style=3D"font-size:0.1px;">
+<img src=3D"https://logs.naukri.com/collectorapi/v1/uba?data=3D%7B%22device=
+Type%22%3A%22WEB%22%2C%22additionalParams%22%3A%7B%7D%2C%22campaignId%22%3A=
+%223816%22%2C%22communicationId%22%3A%22691dbd53b0a6e7c4edc175f3%22%2C%22co=
+mmunicationType%22%3A%22mail%22%2C%22journeyId%22%3A%22930_20251118%22%2C%2=
+2userId%22%3A%22305641280%22%2C%22eventCode%22%3A%22930_naukri_campus_conte=
+st_reg_start_1_day_naukri_campus_contest_reg_start_1_day_start_b5a9_mail%22=
+%2C%22encEmail%22%3A%22b74cdd902aa0275fdd6c50ff6531bd10da52f014e93a6462577f=
+dc0fee71ac0492d2d6ac5f21f68f%22%2C%22mailType%22%3A%22fn_promo%22%2C%22mail=
+erId%22%3A%22783524%22%2C%22requestId%22%3A%22691db92091336148770972bf%22%2=
+C%22appId%22%3A%22456%22%2C%22segmentId%22%3A%22129066%22%2C%22tenantId%22%=
+3A%221%22%2C%22eventName%22%3A%22communicationOpen%22%2C%22parentActivityId=
+%22%3A%22436860%22%2C%22parentJourneyId%22%3A%22930%22%7D" height=3D"0px" w=
+idth=3D"0px">
+</div>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" alig=
+n=3D"center" bgcolor=3D"#EEF2F6" style=3D"border-collapse: collapse; mso-ta=
+ble-lspace: 0pt; mso-table-rspace: 0pt;">
+ <tbody><tr>
+  <td valign=3D"top">
+   <table border=3D"0" align=3D"center" cellpadding=3D"0" cellspacing=3D"0"=
+ bgcolor=3D"#ffffff" style=3D"max-width:600px; border-collapse: collapse; m=
+so-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tbody><tr>
+     <td valign=3D"top" width=3D"600">
+      <table width=3D"100%" align=3D"center" border=3D"0" cellspacing=3D"0"=
+ cellpadding=3D"0" style=3D"border-collapse:collapse; mso-table-lspace:0pt;=
+ mso-table-rspace:0pt;">
+       <tbody><tr>
+        <td valign=3D"top">
+         <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" style=3D"min-width:280px;">
+          <tbody><tr>
+           <td valign=3D"top" height=3D"28" colspan=3D"3"></td>
+          </tr>
+          <tr>
+           <td width=3D"25">&nbsp;</td>
+           <td valign=3D"top" width=3D"560">
+            <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">
+             <tbody><tr>
+              <td valign=3D"top" align=3D"left"><a href=3D"https://cm.naukr=
+i.com?data=3D%7B%22deviceType%22%3A%22WEB%22%2C%22additionalParams%22%3A%7B=
+%7D%2C%22campaignId%22%3A%223816%22%2C%22communicationId%22%3A%22691dbd53b0=
+a6e7c4edc175f3%22%2C%22clickPosition%22%3A1%2C%22communicationType%22%3A%22=
+mail%22%2C%22journeyId%22%3A%22930_20251118%22%2C%22userId%22%3A%22dd494b3f=
+37f6d5cb8cb901bcbf66033bc3d10434874abafbf79fd6c296adc7b6%22%2C%22eventCode%=
+22%3A%22930_naukri_campus_contest_reg_start_1_day_naukri_campus_contest_reg=
+_start_1_day_start_b5a9_mail%22%2C%22encEmail%22%3A%22b74cdd902aa0275fdd6c5=
+0ff6531bd10da52f014e93a6462577fdc0fee71ac0492d2d6ac5f21f68f%22%2C%22mailTyp=
+e%22%3A%22fn_promo%22%2C%22mailerId%22%3A%22783524%22%2C%22segmentId%22%3A%=
+22129066%22%2C%22appId%22%3A456%2C%22tenantId%22%3A%221%22%2C%22parentActiv=
+ityId%22%3A%22436860%22%2C%22eventName%22%3A%22communicationClick%22%2C%22p=
+arentJourneyId%22%3A%22930%22%7D&amp;redirect=3Dhttps%3A%2F%2Fwww.naukri.co=
+m%2Fcampus%3Futm_campaign%3Dnaukri_campus_contests_campaign%26utm_medium%3D=
+email%26utm_content%3D930_naukri_campus_contest_reg_start_1_day_naukri_camp=
+us_contest_reg_start_1_day_start_b5a9%26utm_term%3D783524%26utm_source%3Dma=
+il" target=3D"_blank"><img src=3D"https://www.ieplads.com/mailers/2024_ui/n=
+aukri/nc-upload-march/campus_logo.png" width=3D"140" align=3D"left" alt=3D"=
+naukri.com" style=3D"max-width:140px;"></a></td>
+              <td valign=3D"middle" align=3D"right">
+                                         =20
+              </td>
+             </tr>
+             </tbody></table>
+            </td>
+            <td width=3D"20">&nbsp;</td>
+           </tr>
+           <tr>
+            <td valign=3D"top" height=3D"19" colspan=3D"3"></td>
+           </tr>
+          </tbody></table>
+         </td>
+       </tr>
+       <tr>
+        <td valign=3D"top">
+         <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" bgcolor=3D"#fcf5f4" background=3D"https://www.ieplads.com/mailers/20=
+23_ui/naukri/naukri-campus-06dec/images/bg2.png" style=3D"background-repeat=
+:no-repeat; background-position:top left;">
+          <tbody><tr>
+           <td width=3D"10"><img src=3D"https://www.ieplads.com/mailers/202=
+3_ui/naukri/career-camp-15feb/images/space.png" width=3D"2" height=3D"2"></=
+td>
+           <td valign=3D"top" align=3D"center">
+            <table width=3D"86%" align=3D"center" border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0" style=3D"min-width:280px;" class=3D"fluidTable">=
+=20
+             <tbody><tr>
+              <td valign=3D"top" height=3D"20"></td>
+             </tr>
+             <tr>
+              <td valign=3D"top" align=3D"right"><img src=3D"https://www.ie=
+plads.com/mailers/2023_ui/naukri/naukri-campus-06dec/images/i1.png" width=
+=3D"12" style=3D"max-width:12px;"></td>
+             </tr>
+             <tr>
+              <td valign=3D"top" align=3D"center" style=3D"font-family:'Rob=
+oto', Arial, Helvetica, sans-serif; font-size:12px; line-height:14px; color=
+:#474D6A; font-weight:500;">Quiz</td>
+             </tr>                                      =20
+             <tr>
+              <td valign=3D"top" height=3D"2"></td>
+             </tr>
+             <tr>
+              <td valign=3D"top" align=3D"center" style=3D"font-family:'Rob=
+oto', Arial, Helvetica, sans-serif; font-size:24px; line-height:31px; color=
+:#121224; font-weight:700;">Will you accept this challenge?</td>
+             </tr>=20
+             <tr>
+              <td valign=3D"top" height=3D"24"></td>
+             </tr>                 =20
+            </tbody></table>
+           </td>
+           <td width=3D"10"><img src=3D"https://www.ieplads.com/mailers/202=
+3_ui/naukri/career-camp-15feb/images/space.png" width=3D"2" height=3D"2"></=
+td>
+          </tr>
+         </tbody></table>
+        </td>
+       </tr>=20
+       <tr>
+        <td valign=3D"top">
+         <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" bgcolor=3D"#fcf5f4">
+          <tbody><tr>
+           <td width=3D"10"><img src=3D"https://www.ieplads.com/mailers/202=
+3_ui/naukri/career-camp-15feb/images/space.png" width=3D"2" height=3D"2"></=
+td>
+           <td valign=3D"top" align=3D"center">
+            <table width=3D"86%" align=3D"center" border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0" style=3D"min-width:280px;" class=3D"fluidTable">=
+=20
+             <tbody><tr>
+              <td valign=3D"top">
+               <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpad=
+ding=3D"0" bgcolor=3D"#ffffff" style=3D"border:1px solid #F7F7F9; border-ra=
+dius:16px; overflow:hidden;box-shadow: 0px 14px 40px 0px #1E0A3A1A;">
+                <tbody><tr>
+                 <td valign=3D"top" colspan=3D"3"><img src=3D"https://do-ha=
+ckathon-company-assets-prod.s3.ap-southeast-1.amazonaws.com/naukri_campus/c=
+ontest_banner_6417.jpg" width=3D"100%" style=3D"max-width:498px;"></td>
+                </tr>
+                <tr>
+                 <td valign=3D"top" colspan=3D"3" height=3D"20"></td>
+                </tr>
+                <tr>
+                 <td valign=3D"top" colspan=3D"3">
+                  <table width=3D"100%" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"0">
+                   <tbody><tr>
+                    <td width=3D"16"><img src=3D"https://www.ieplads.com/ma=
+ilers/2023_ui/naukri/career-camp-15feb/images/space.png" width=3D"10" heigh=
+t=3D"2"></td>
+                    <td valign=3D"top">
+                     <table width=3D"100%" border=3D"0" cellspacing=3D"0" c=
+ellpadding=3D"0">
+                      <tbody><tr>
+                       <td valign=3D"top">
+                        <table width=3D"50" border=3D"0" cellspacing=3D"0" =
+cellpadding=3D"0" bgcolor=3D"#ffffff" style=3D"border-radius:7px; border:1p=
+x solid #E7E7F1; max-height:40px; overflow:hidden;">
+                      <tbody><tr>
+                       <td align=3D"center" height=3D"50"><img src=3D"https=
+://img.naukimg.com/logo_images/groups/v1/5466500.gif" width=3D"50" height=
+=3D"50" alt=3D"" style=3D"max-width:50px; border-radius:7px;" align=3D"left=
+"></td>
+                      </tr>
+                     </tbody></table>
+                       </td>
+                      </tr>
+                      <tr>
+                       <td valign=3D"top" height=3D"12"></td>
+                      </tr>
+                      <tr>
+                       <td valign=3D"top" style=3D"font-family:'Roboto', Ar=
+ial, Helvetica, sans-serif; font-size:14px; line-height:18px; color:#474D6A=
+; font-weight:500;">naukri campus presents</td>
+                      </tr>
+                      <tr>
+                       <td valign=3D"top" style=3D"font-family:'Roboto', Ar=
+ial, Helvetica, sans-serif; font-size:18px; line-height:24px; color:#121224=
+; font-weight:700;">Crack Government Exam - SSC CGL #3</td>
+                      </tr>
+                      <tr>
+                       <td valign=3D"top" height=3D"12"></td>
+                      </tr>
+                      <tr>
+                       <td valign=3D"top">
+                        <table align=3D"left" border=3D"0" cellspacing=3D"0=
+" cellpadding=3D"0">
+                         <tbody><tr>
+                          <td width=3D"58" style=3D"font-family:'Roboto', A=
+rial, Helvetica, sans-serif; font-size:14px; line-height:19px; color:#717B9=
+E; font-weight:400; white-space:nowrap;">Rounds : <span style=3D"color:#474=
+D6A;">1</span></td>
+                          <td width=3D"24" align=3D"center"><img src=3D"htt=
+ps://www.ieplads.com/mailers/2023_ui/naukri/naukri-campus-02nov/images/dot.=
+png" width=3D"6" style=3D"max-width:6px;"></td>
+                          <td style=3D"font-family:'Roboto', Arial, Helveti=
+ca, sans-serif; font-size:14px; line-height:19px; color:#717B9E; font-weigh=
+t:400; white-space:nowrap;">Duration : <span style=3D"color:#474D6A;">6 Dec=
+ - 7 Dec</span></td>
+                          <td width=3D"10"><img src=3D"https://www.ieplads.=
+com/mailers/2023_ui/naukri/career-camp-15feb/images/space.png" width=3D"2" =
+height=3D"2"></td>
+                         </tr>
+                         <tr>
+                          <td valign=3D"top" height=3D"8" colspan=3D"4"></t=
+d>
+                         </tr>
+                        </tbody></table>
+                       </td>
+                      </tr>
+                      <tr>
+                        <td valign=3D"top">
+                            <table width=3D"130" align=3D"left" border=3D"0=
+" cellspacing=3D"0" cellpadding=3D"0">
+                                <tbody><tr>
+                                 <td width=3D"58" style=3D"font-family:'Rob=
+oto', Arial, Helvetica, sans-serif; font-size:14px; line-height:19px; color=
+:#717B9E; font-weight:400; white-space:nowrap;">Participants : <span style=
+=3D"color:#474D6A;">
+                                   =20
+                                    Individual
+                                   =20
+                                </span></td>
+                                </tr>
+                                <tr>
+                                 <td valign=3D"top" height=3D"8"></td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                      </tr>
+                      <tr>
+                       <td valign=3D"top" height=3D"12" style=3D"border-bot=
+tom:1px solid #F7F7F9"></td>
+                      </tr>
+                      <tr>
+                       <td valign=3D"top" height=3D"20"></td>
+                      </tr>
+                      <tr>
+                       <td valign=3D"top" align=3D"center" style=3D"font-fa=
+mily:'Roboto', Arial, Helvetica, sans-serif; font-size:14px; line-height:19=
+px; color:#474D6A; font-weight:700;">What are you waiting for?</td>
+                      </tr>
+                      <tr>
+                       <td valign=3D"top" height=3D"4"></td>
+                      </tr>
+                      <tr>
+                       <td valign=3D"top" align=3D"center" style=3D"font-fa=
+mily:'Roboto', Arial, Helvetica, sans-serif; font-size:14px; line-height:19=
+px; color:#474D6A; font-weight:400;">Contest are an amazing way to learn an=
+d grow. </td>
+                      </tr>
+                      <tr>
+                       <td valign=3D"top" height=3D"8"></td>
+                      </tr>
+                      <tr>
+                       <td valign=3D"top" align=3D"center">
+                        <table width=3D"180" align=3D"center" cellspacing=
+=3D"0" cellpadding=3D"0" bgcolor=3D"#275DF5" style=3D"border-radius:50px;">
+                         <tbody><tr>
+                          <td width=3D"8"><img src=3D"https://www.ieplads.c=
+om/mailers/2023_ui/naukri/career-camp-15feb/images/space.png" width=3D"2" h=
+eight=3D"2"></td>
+                          <td height=3D"38" align=3D"center"><a href=3D"htt=
+ps://cm.naukri.com?data=3D%7B%22deviceType%22%3A%22WEB%22%2C%22additionalPa=
+rams%22%3A%7B%7D%2C%22campaignId%22%3A%223816%22%2C%22communicationId%22%3A=
+%22691dbd53b0a6e7c4edc175f3%22%2C%22clickPosition%22%3A2%2C%22communication=
+Type%22%3A%22mail%22%2C%22journeyId%22%3A%22930_20251118%22%2C%22userId%22%=
+3A%22dd494b3f37f6d5cb8cb901bcbf66033bc3d10434874abafbf79fd6c296adc7b6%22%2C=
+%22eventCode%22%3A%22930_naukri_campus_contest_reg_start_1_day_naukri_campu=
+s_contest_reg_start_1_day_start_b5a9_mail%22%2C%22encEmail%22%3A%22b74cdd90=
+2aa0275fdd6c50ff6531bd10da52f014e93a6462577fdc0fee71ac0492d2d6ac5f21f68f%22=
+%2C%22mailType%22%3A%22fn_promo%22%2C%22mailerId%22%3A%22783524%22%2C%22seg=
+mentId%22%3A%22129066%22%2C%22appId%22%3A456%2C%22tenantId%22%3A%221%22%2C%=
+22parentActivityId%22%3A%22436860%22%2C%22eventName%22%3A%22communicationCl=
+ick%22%2C%22parentJourneyId%22%3A%22930%22%7D&amp;redirect=3Dhttps%3A%2F%2F=
+www.naukri.com%2Fcampus%2Fcontests%2F32617%3Faction%3Denrol%26utm_source%3D=
+32617_conteststartmail%26utm_medium%3Demail%26utm_campaign%3Dcontestinforma=
+tion%26utm_content%3D930_naukri_campus_contest_reg_start_1_day_naukri_campu=
+s_contest_reg_start_1_day_start_b5a9%26utm_term%3D783524" target=3D"_blank"=
+ style=3D"font-family:'Roboto', Arial, Helvetica, sans-serif; text-decorati=
+on:none; font-size:14px; display:block; text-align:center; color:#ffffff; f=
+ont-weight:700; line-height:38px;">Enrol Now</a></td>
+                          <td width=3D"8"><img src=3D"https://www.ieplads.c=
+om/mailers/2023_ui/naukri/career-camp-15feb/images/space.png" width=3D"2" h=
+eight=3D"2"></td>
+                         </tr>
+                        </tbody></table>
+                       </td>
+                      </tr>
+                      <tr>
+                       <td valign=3D"top" height=3D"10"></td>
+                      </tr>
+                      <tr>
+                       <td valign=3D"top" align=3D"center" style=3D"font-fa=
+mily:'Roboto', Arial, Helvetica, sans-serif; font-size:12px; line-height:14=
+px; color:#474D6A; font-weight:400;">Enrol to unlock your chances to win am=
+azing prizes!</td>
+                      </tr>                     =20
+                     </tbody></table>
+                    </td>                   =20
+                    <td width=3D"16"><img src=3D"https://www.ieplads.com/ma=
+ilers/2023_ui/naukri/career-camp-15feb/images/space.png" width=3D"10" heigh=
+t=3D"2"></td>
+                   </tr>
+                  </tbody></table>
+                 </td>
+                </tr>
+                <tr>
+                 <td valign=3D"top" colspan=3D"3" height=3D"30"></td>
+                </tr>                                               =20
+               </tbody></table>
+              </td>
+             </tr>               =20
+             <tr>
+              <td valign=3D"top" height=3D"30"></td>
+             </tr>                    =20
+            </tbody></table>
+           </td>
+           <td width=3D"10"><img src=3D"https://www.ieplads.com/mailers/202=
+3_ui/naukri/career-camp-15feb/images/space.png" width=3D"2" height=3D"2"></=
+td>
+          </tr>
+         </tbody></table>
+        </td>
+       </tr>
+       <tr>
+        <td valign=3D"top" height=3D"40"></td>
+       </tr>
+       <tr>
+        <td valign=3D"top">
+         <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0">
+          <tbody><tr>
+           <td width=3D"10"><img src=3D"https://www.ieplads.com/mailers/202=
+3_ui/naukri/career-camp-15feb/images/space.png" width=3D"2" height=3D"2"></=
+td>
+           <td valign=3D"top" align=3D"center">
+            <table width=3D"84%" align=3D"center" border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0" style=3D"min-width:280px;" class=3D"fluidTable2">
+             <tbody><tr>
+              <td valign=3D"top" align=3D"center">
+               <table cellspacing=3D"0" cellpadding=3D"0" align=3D"center">
+                <tbody><tr>
+                 <td width=3D"18" align=3D"center"><a href=3D"https://cm.na=
+ukri.com?data=3D%7B%22deviceType%22%3A%22WEB%22%2C%22additionalParams%22%3A=
+%7B%7D%2C%22campaignId%22%3A%223816%22%2C%22communicationId%22%3A%22691dbd5=
+3b0a6e7c4edc175f3%22%2C%22clickPosition%22%3A3%2C%22communicationType%22%3A=
+%22mail%22%2C%22journeyId%22%3A%22930_20251118%22%2C%22userId%22%3A%22dd494=
+b3f37f6d5cb8cb901bcbf66033bc3d10434874abafbf79fd6c296adc7b6%22%2C%22eventCo=
+de%22%3A%22930_naukri_campus_contest_reg_start_1_day_naukri_campus_contest_=
+reg_start_1_day_start_b5a9_mail%22%2C%22encEmail%22%3A%22b74cdd902aa0275fdd=
+6c50ff6531bd10da52f014e93a6462577fdc0fee71ac0492d2d6ac5f21f68f%22%2C%22mail=
+Type%22%3A%22fn_promo%22%2C%22mailerId%22%3A%22783524%22%2C%22segmentId%22%=
+3A%22129066%22%2C%22appId%22%3A456%2C%22tenantId%22%3A%221%22%2C%22parentAc=
+tivityId%22%3A%22436860%22%2C%22eventName%22%3A%22communicationClick%22%2C%=
+22parentJourneyId%22%3A%22930%22%7D&amp;redirect=3Dhttps%3A%2F%2Fwww.facebo=
+ok.com%2Ffirstnaukri%3Futm_campaign%3Dnaukri_campus_contests_campaign%26utm=
+_medium%3Demail%26utm_content%3D930_naukri_campus_contest_reg_start_1_day_n=
+aukri_campus_contest_reg_start_1_day_start_b5a9%26utm_term%3D783524" style=
+=3D"text-decoration:none; color:#4b69b0;" target=3D"_blank"><img src=3D"htt=
+ps://www.ieplads.com/mailers/2023_ui/naukri/naukri-campus-12dec/images/fb.p=
+ng" alt=3D"Facebook" style=3D"font-family:'Roboto', Arial; font-weight:400;=
+ text-align:center; font-size:11px; color:#4b69b0; line-height:13px;" width=
+=3D"21"></a></td>
+                 <td width=3D"9"></td>
+                 <td width=3D"18" align=3D"center"><a href=3D"https://cm.na=
+ukri.com?data=3D%7B%22deviceType%22%3A%22WEB%22%2C%22additionalParams%22%3A=
+%7B%7D%2C%22campaignId%22%3A%223816%22%2C%22communicationId%22%3A%22691dbd5=
+3b0a6e7c4edc175f3%22%2C%22clickPosition%22%3A4%2C%22communicationType%22%3A=
+%22mail%22%2C%22journeyId%22%3A%22930_20251118%22%2C%22userId%22%3A%22dd494=
+b3f37f6d5cb8cb901bcbf66033bc3d10434874abafbf79fd6c296adc7b6%22%2C%22eventCo=
+de%22%3A%22930_naukri_campus_contest_reg_start_1_day_naukri_campus_contest_=
+reg_start_1_day_start_b5a9_mail%22%2C%22encEmail%22%3A%22b74cdd902aa0275fdd=
+6c50ff6531bd10da52f014e93a6462577fdc0fee71ac0492d2d6ac5f21f68f%22%2C%22mail=
+Type%22%3A%22fn_promo%22%2C%22mailerId%22%3A%22783524%22%2C%22segmentId%22%=
+3A%22129066%22%2C%22appId%22%3A456%2C%22tenantId%22%3A%221%22%2C%22parentAc=
+tivityId%22%3A%22436860%22%2C%22eventName%22%3A%22communicationClick%22%2C%=
+22parentJourneyId%22%3A%22930%22%7D&amp;redirect=3Dhttps%3A%2F%2Ftwitter.co=
+m%2Fnaukri_campus%3Futm_campaign%3Dnaukri_campus_contests_campaign%26utm_me=
+dium%3Demail%26utm_content%3D930_naukri_campus_contest_reg_start_1_day_nauk=
+ri_campus_contest_reg_start_1_day_start_b5a9%26utm_term%3D783524" style=3D"=
+text-decoration:none; color:#37b1e1;" target=3D"_blank"><img src=3D"https:/=
+/www.ieplads.com/mailers/2022/naukri/23may/images/twitter.png" alt=3D"Twitt=
+er" style=3D"font-family:'Roboto', Arial; font-weight:400; text-align:cente=
+r; font-size:11px; color:#37b1e1; line-height:13px;" width=3D"21"></a></td>
+                 <td width=3D"9"></td>
+                 <td width=3D"18" align=3D"center"><a href=3D"https://cm.na=
+ukri.com?data=3D%7B%22deviceType%22%3A%22WEB%22%2C%22additionalParams%22%3A=
+%7B%7D%2C%22campaignId%22%3A%223816%22%2C%22communicationId%22%3A%22691dbd5=
+3b0a6e7c4edc175f3%22%2C%22clickPosition%22%3A5%2C%22communicationType%22%3A=
+%22mail%22%2C%22journeyId%22%3A%22930_20251118%22%2C%22userId%22%3A%22dd494=
+b3f37f6d5cb8cb901bcbf66033bc3d10434874abafbf79fd6c296adc7b6%22%2C%22eventCo=
+de%22%3A%22930_naukri_campus_contest_reg_start_1_day_naukri_campus_contest_=
+reg_start_1_day_start_b5a9_mail%22%2C%22encEmail%22%3A%22b74cdd902aa0275fdd=
+6c50ff6531bd10da52f014e93a6462577fdc0fee71ac0492d2d6ac5f21f68f%22%2C%22mail=
+Type%22%3A%22fn_promo%22%2C%22mailerId%22%3A%22783524%22%2C%22segmentId%22%=
+3A%22129066%22%2C%22appId%22%3A456%2C%22tenantId%22%3A%221%22%2C%22parentAc=
+tivityId%22%3A%22436860%22%2C%22eventName%22%3A%22communicationClick%22%2C%=
+22parentJourneyId%22%3A%22930%22%7D&amp;redirect=3Dhttps%3A%2F%2Fwww.instag=
+ram.com%2Fnaukri_campus%2F%3Futm_campaign%3Dnaukri_campus_contests_campaign=
+%26utm_medium%3Demail%26utm_content%3D930_naukri_campus_contest_reg_start_1=
+_day_naukri_campus_contest_reg_start_1_day_start_b5a9%26utm_term%3D783524" =
+style=3D"text-decoration:none; color:#7a4b9a;" target=3D"_blank"><img src=
+=3D"https://www.ieplads.com/mailers/2023_ui/naukri/naukri-campus-12dec/imag=
+es/insta.png" alt=3D"Instagram" style=3D"font-family:'Roboto', Arial; font-=
+weight:400; text-align:center; font-size:11px; color:#7a4b9a; line-height:1=
+3px;" width=3D"21"></a></td>
+                </tr>
+               </tbody></table>
+              </td>
+             </tr>
+             <tr>
+              <td valign=3D"top" height=3D"17"></td>
+             </tr>
+             <tr>
+              <td valign=3D"top" align=3D"center">
+               <table cellspacing=3D"0" cellpadding=3D"0" align=3D"center">
+                <tbody><tr>
+                 <td valign=3D"top" align=3D"center"><a href=3D"https://cm.=
+naukri.com?data=3D%7B%22deviceType%22%3A%22WEB%22%2C%22additionalParams%22%=
+3A%7B%7D%2C%22campaignId%22%3A%223816%22%2C%22communicationId%22%3A%22691db=
+d53b0a6e7c4edc175f3%22%2C%22clickPosition%22%3A6%2C%22communicationType%22%=
+3A%22mail%22%2C%22journeyId%22%3A%22930_20251118%22%2C%22userId%22%3A%22dd4=
+94b3f37f6d5cb8cb901bcbf66033bc3d10434874abafbf79fd6c296adc7b6%22%2C%22event=
+Code%22%3A%22930_naukri_campus_contest_reg_start_1_day_naukri_campus_contes=
+t_reg_start_1_day_start_b5a9_mail%22%2C%22encEmail%22%3A%22b74cdd902aa0275f=
+dd6c50ff6531bd10da52f014e93a6462577fdc0fee71ac0492d2d6ac5f21f68f%22%2C%22ma=
+ilType%22%3A%22fn_promo%22%2C%22mailerId%22%3A%22783524%22%2C%22segmentId%2=
+2%3A%22129066%22%2C%22appId%22%3A456%2C%22tenantId%22%3A%221%22%2C%22parent=
+ActivityId%22%3A%22436860%22%2C%22eventName%22%3A%22communicationClick%22%2=
+C%22parentJourneyId%22%3A%22930%22%7D&amp;redirect=3Dhttps%3A%2F%2Fwww.nauk=
+ri.com%2Fmnjuser%2Fsettings%2Fcommunication%3Futm_campaign%3DNaukriCampus%2=
+6utm_medium%3Demail%26utm_source%3Dunsubscribe%26utm_content%3D930_naukri_c=
+ampus_contest_reg_start_1_day_naukri_campus_contest_reg_start_1_day_start_b=
+5a9%26utm_term%3D783524" style=3D"font-family:'Roboto', Arial, Helvetica, s=
+ans-serif; text-align:center; font-size:11px; line-height:15px; color:#979E=
+C2; font-weight:400; text-decoration:none;" target=3D"_blank">Unsubscribe</=
+a></td>
+                 <td style=3D"font-family:'Roboto', Arial, Helvetica, sans-=
+serif; text-align:center; font-size:11px; line-height:15px; color:#979EC2; =
+font-weight:400;" width=3D"15" height=3D"12" align=3D"center">|</td>
+                 <td valign=3D"top" align=3D"center"><a href=3D"https://cm.=
+naukri.com?data=3D%7B%22deviceType%22%3A%22WEB%22%2C%22additionalParams%22%=
+3A%7B%7D%2C%22campaignId%22%3A%223816%22%2C%22communicationId%22%3A%22691db=
+d53b0a6e7c4edc175f3%22%2C%22clickPosition%22%3A7%2C%22communicationType%22%=
+3A%22mail%22%2C%22journeyId%22%3A%22930_20251118%22%2C%22userId%22%3A%22dd4=
+94b3f37f6d5cb8cb901bcbf66033bc3d10434874abafbf79fd6c296adc7b6%22%2C%22event=
+Code%22%3A%22930_naukri_campus_contest_reg_start_1_day_naukri_campus_contes=
+t_reg_start_1_day_start_b5a9_mail%22%2C%22encEmail%22%3A%22b74cdd902aa0275f=
+dd6c50ff6531bd10da52f014e93a6462577fdc0fee71ac0492d2d6ac5f21f68f%22%2C%22ma=
+ilType%22%3A%22fn_promo%22%2C%22mailerId%22%3A%22783524%22%2C%22segmentId%2=
+2%3A%22129066%22%2C%22appId%22%3A456%2C%22tenantId%22%3A%221%22%2C%22parent=
+ActivityId%22%3A%22436860%22%2C%22eventName%22%3A%22communicationClick%22%2=
+C%22parentJourneyId%22%3A%22930%22%7D&amp;redirect=3Dhttps%3A%2F%2Fw5.naukr=
+i.com%2Ffdbck%2Fmain%2Ffeedback.php%3Futm_campaign%3DNaukriCampus%26utm_med=
+ium%3Demail%26utm_source%3Dreport%26utm_content%3D930_naukri_campus_contest=
+_reg_start_1_day_naukri_campus_contest_reg_start_1_day_start_b5a9%26utm_ter=
+m%3D783524" style=3D"font-family:'Roboto', Arial, Helvetica, sans-serif; te=
+xt-align:left; font-size:11px; line-height:15px; color:#979EC2; font-weight=
+:400; text-decoration:none;" target=3D"_blank">Report a problem</a></td>
+                </tr>
+               </tbody></table>
+              </td>
+             </tr>
+             <tr>
+              <td valign=3D"top" height=3D"12"></td>
+             </tr>
+             <tr>
+              <td valign=3D"top" align=3D"center" style=3D"font-family:'Rob=
+oto', Arial, Helvetica, sans-serif; font-size:11px; line-height:15px; color=
+:#979EC2; font-weight:400;">You have received this mail because your e-mail=
+ ID is registered with Naukri.com. This is a system-generated e-mail, pleas=
+e <span style=3D"white-space:nowrap;">don't reply</span> to this message.</=
+td>
+             </tr>
+             <tr>
+              <td valign=3D"top" height=3D"15"></td>
+             </tr>
+             <tr>
+              <td valign=3D"top" align=3D"center">
+               <table width=3D"98%" align=3D"center" border=3D"0" cellspaci=
+ng=3D"0" cellpadding=3D"0" style=3D"min-width:280px;">
+                <tbody><tr>
+                 <td valign=3D"top" align=3D"center" style=3D"font-family:'=
+Roboto', Arial, Helvetica, sans-serif; font-size:11px; line-height:15px; co=
+lor:#979EC2; font-weight:400;">Please do not pay any money to anyone who pr=
+omises to find you a job. IEIL shall not have any responsibility in this re=
+gard. We recommend that you visit our <a href=3D"https://cm.naukri.com?data=
+=3D%7B%22deviceType%22%3A%22WEB%22%2C%22additionalParams%22%3A%7B%7D%2C%22c=
+ampaignId%22%3A%223816%22%2C%22communicationId%22%3A%22691dbd53b0a6e7c4edc1=
+75f3%22%2C%22clickPosition%22%3A8%2C%22communicationType%22%3A%22mail%22%2C=
+%22journeyId%22%3A%22930_20251118%22%2C%22userId%22%3A%22dd494b3f37f6d5cb8c=
+b901bcbf66033bc3d10434874abafbf79fd6c296adc7b6%22%2C%22eventCode%22%3A%2293=
+0_naukri_campus_contest_reg_start_1_day_naukri_campus_contest_reg_start_1_d=
+ay_start_b5a9_mail%22%2C%22encEmail%22%3A%22b74cdd902aa0275fdd6c50ff6531bd1=
+0da52f014e93a6462577fdc0fee71ac0492d2d6ac5f21f68f%22%2C%22mailType%22%3A%22=
+fn_promo%22%2C%22mailerId%22%3A%22783524%22%2C%22segmentId%22%3A%22129066%2=
+2%2C%22appId%22%3A456%2C%22tenantId%22%3A%221%22%2C%22parentActivityId%22%3=
+A%22436860%22%2C%22eventName%22%3A%22communicationClick%22%2C%22parentJourn=
+eyId%22%3A%22930%22%7D&amp;redirect=3Dhttps%3A%2F%2Fwww.naukri.com%2Ftermsc=
+onditions%3Futm_campaign%3DNaukriCampus%26utm_medium%3Demail%26utm_source%3=
+Dtnc%26utm_content%3D930_naukri_campus_contest_reg_start_1_day_naukri_campu=
+s_contest_reg_start_1_day_start_b5a9%26utm_term%3D783524" target=3D"_blank"=
+ style=3D"color:#457EFF; text-decoration:none;">Terms &amp; Conditions</a> =
+and the <a href=3D"https://cm.naukri.com?data=3D%7B%22deviceType%22%3A%22WE=
+B%22%2C%22additionalParams%22%3A%7B%7D%2C%22campaignId%22%3A%223816%22%2C%2=
+2communicationId%22%3A%22691dbd53b0a6e7c4edc175f3%22%2C%22clickPosition%22%=
+3A9%2C%22communicationType%22%3A%22mail%22%2C%22journeyId%22%3A%22930_20251=
+118%22%2C%22userId%22%3A%22dd494b3f37f6d5cb8cb901bcbf66033bc3d10434874abafb=
+f79fd6c296adc7b6%22%2C%22eventCode%22%3A%22930_naukri_campus_contest_reg_st=
+art_1_day_naukri_campus_contest_reg_start_1_day_start_b5a9_mail%22%2C%22enc=
+Email%22%3A%22b74cdd902aa0275fdd6c50ff6531bd10da52f014e93a6462577fdc0fee71a=
+c0492d2d6ac5f21f68f%22%2C%22mailType%22%3A%22fn_promo%22%2C%22mailerId%22%3=
+A%22783524%22%2C%22segmentId%22%3A%22129066%22%2C%22appId%22%3A456%2C%22ten=
+antId%22%3A%221%22%2C%22parentActivityId%22%3A%22436860%22%2C%22eventName%2=
+2%3A%22communicationClick%22%2C%22parentJourneyId%22%3A%22930%22%7D&amp;red=
+irect=3Dhttps%3A%2F%2Fcompany.naukri.com%2Flanding-page%2Ffakejobtrend%2Fne=
+w%2Findex.html%3Futm_campaign%3DNaukriCampus%26utm_medium%3Demail%26utm_sou=
+rce%3Dsecurity%26utm_content%3D930_naukri_campus_contest_reg_start_1_day_na=
+ukri_campus_contest_reg_start_1_day_start_b5a9%26utm_term%3D783524" target=
+=3D"_blank" style=3D"color:#457EFF; text-decoration:none;">Security Advice<=
+/a> for more information.</td>
+                </tr>
+               </tbody></table>
+              </td>
+             </tr>           =20
+            </tbody></table>
+           </td>          =20
+          </tr>
+         </tbody></table>
+        </td>
+       </tr>                   =20
+       <tr>
+        <td valign=3D"top" height=3D"30"></td>
+       </tr>
+      </tbody></table>
+     </td>=20
+    </tr>
+   </tbody></table>
+  </td>
+ </tr>
+</tbody></table> =20
+
+</body></html>
+------=_Part_2225545_1605456328.1763556693501--
+
+------=_Part_2225544_1124243321.1763556693501--

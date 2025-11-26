@@ -1,0 +1,41 @@
+# Systemd Service File for Automatic Retraining
+# For Linux systems with systemd
+#
+# Installation:
+#   1. Edit paths below to match your installation
+#   2. sudo cp scripts/phishing-retrain.service /etc/systemd/system/
+#   3. sudo systemctl daemon-reload
+#   4. sudo systemctl enable phishing-retrain
+#   5. sudo systemctl start phishing-retrain
+#
+# Check status:
+#   sudo systemctl status phishing-retrain
+#
+# View logs:
+#   sudo journalctl -u phishing-retrain -f
+
+[Unit]
+Description=Phishing Email Detector - Automatic ML Model Retraining
+After=network.target
+
+[Service]
+Type=simple
+User=YOUR_USERNAME
+WorkingDirectory=/path/to/phishing-detector
+Environment="PATH=/path/to/phishing-detector/venv/bin"
+Environment="RETRAIN_SCHEDULE=daily"
+Environment="RETRAIN_TIME=02:00"
+Environment="RETRAIN_MIN_EMAILS=10"
+
+ExecStart=/path/to/phishing-detector/venv/bin/python3 /path/to/phishing-detector/ml/auto_retrain.py --schedule daily --time 02:00 --min-emails 10
+
+Restart=on-failure
+RestartSec=60
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=phishing-retrain
+
+[Install]
+WantedBy=multi-user.target

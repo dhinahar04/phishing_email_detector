@@ -1,0 +1,53 @@
+From: account-security@microsoft-verify.top
+To: employee@company.com
+Subject: Microsoft Account: Unusual Sign-In Activity - Action Required
+Date: Sat, 21 Oct 2025 11:45:00 +0000
+Message-ID: <security555@microsoft-verify.top>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Microsoft Account Security Alert
+
+We detected an unusual sign-in to your Microsoft Account employee@company.com
+
+Sign-in details:
+Country/Region: China
+IP Address: 121.42.153.199
+Date: October 21, 2025 11:30 AM UTC
+Browser: Firefox on Linux
+
+If this was you, you can safely ignore this email.
+
+If this wasn't you, your account may have been compromised. Please secure your account immediately:
+
+Verify your account: https://microsoft-account-verify.top/security/verify
+
+Direct link: http://103.224.182.245/ms/login.aspx
+
+To secure your account, we need you to:
+- Confirm your current password
+- Verify your phone number
+- Update security questions
+- Confirm recovery email address
+
+Your account will be temporarily suspended if not verified within 24 hours.
+
+Additional suspicious activity detected from these IPs:
+- 192.168.100.50
+- 203.0.113.42
+- 198.51.100.78
+
+Need help? Contact us:
+Email: support@microsoft-verify.top
+Verification URL: http://tinyurl.com/ms-account-verify
+
+Thanks,
+Microsoft Account Team
+
+---
+Microsoft Corporation
+account-security@microsoft-verify.top
+
+This message was sent to employee@company.com
+Transaction ID: MS-2025-87654321
+Reference: d9b1d7db4cd6e70935368a1efb10e377
